@@ -146,14 +146,6 @@ Diese Datei speichert ausschließlich die Sprachauswahl. Die Optionen zur Tasten
 
 Mit PyInstaller können Sie die Python-Anwendung in eine einzelne EXE-Datei umwandeln.
 
-### 1. PyInstaller installieren
-
-Installieren Sie PyInstaller in Version 6.22.3:
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. Zum Projektordner wechseln
 
 Öffnen Sie PowerShell im Projektordner.

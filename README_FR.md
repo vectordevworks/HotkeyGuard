@@ -146,14 +146,6 @@ Ce fichier enregistre uniquement la sélection de la langue. Les options de bloc
 
 PyInstaller est utilisé pour convertir l'application Python en un seul fichier EXE.
 
-### 1. Installation de PyInstaller
-
-Installez la version 6.22.3 de PyInstaller :
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. Ouvrir le dossier du projet
 
 Ouvrez PowerShell dans le dossier du projet.

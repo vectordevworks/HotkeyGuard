@@ -1,4 +1,4 @@
-# KısayolBekçisi
+# HotkeyGuard
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="İngilizce"> İngilizce
@@ -36,26 +36,26 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Basitleştirilmiş Çince"> Basitleştirilmiş Çince
 </a>
 |
-<strong>
+</strong>
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </strong>
 
-KısayolBekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenebilecek kısayolları kontrol altında tutabilir ve seçtiğiniz koruma özelliklerini kolayca yönetebilirsiniz.
+HotkeyGuard, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenen kısayolları kontrol altında tutabilir ve istediğiniz korumaları kolayca yönetebilirsiniz.
 
 ## Genel Bakış
 
-Uygulama, Windows klavye olaylarını izleyerek seçtiğiniz kısayolları engeller. Koruma özelliği, uygulama başlatıldığında otomatik olarak etkinleşmez. Korumayı etkinleştirmek için arayüzdeki **Başlat** düğmesine basmanız gerekir.
+Uygulama, Windows klavye olaylarını izler ve seçtiğiniz kısayolları engeller. Kısayol koruması uygulama başlatıldığında otomatik olarak etkinleşmez; arayüzdeki **Başlat** düğmesine tıklamanız gerekir.
 
 ## Özellikler
 
-- **Shift + Delete engelleme:** Dosyaların kalıcı olarak silinmesini sağlayan Shift + Delete kısayolunu engeller.
-- **Uygulamaya bağlı F1 engelleme:** F1 tuşunu Google Chrome, Microsoft Edge, Mozilla Firefox, Brave, Opera ve Windows masaüstünde / Dosya Gezgini'nde engeller.
-- **Seçilebilir korumalar:** Shift + Delete ve F1 engellemelerini arayüz üzerinden birbirinden bağımsız olarak etkinleştirip devre dışı bırakabilirsiniz.
-- **Bildirim alanına küçültme:** Uygulamayı Windows bildirim alanına küçültmenizi sağlar.
+- **Shift + Delete engelleme:** Kalıcı silme kısayolunu engeller.
+- **Uygulamaya özel F1 engelleme:** Chrome, Microsoft Edge, Firefox, Brave, Opera ve Windows Masaüstü / Dosya Gezgini'nde F1 tuşunu engeller.
+- **Seçilebilir korumalar:** Shift + Delete ve F1 engelleme özelliklerini arayüz üzerinden birbirinden bağımsız olarak etkinleştirebilir veya devre dışı bırakabilirsiniz.
+- **Sistem tepsisine küçültme:** Uygulamayı sistem tepsisine küçültebilirsiniz.
 - **Çoklu dil desteği:** Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce, Rusça, Japonca, Basitleştirilmiş Çince ve Korece dillerini destekler.
-- **Kaydırılabilir arayüz:** Uygulama penceresinin içeriğini kaydırmanızı sağlar.
+- **Kaydırılabilir arayüz:** Uygulama penceresinin içeriği kaydırılabilir.
 
-F1 engellemesi yalnızca yukarıda belirtilen uygulamalarda etkindir. Diğer uygulamalarda ve oyunlarda F1 tuşu engellenmez.
+F1 engelleme özelliği yalnızca yukarıda listelenen uygulamalarda etkindir. F1 tuşu diğer uygulamalarda veya oyunlarda engellenmez.
 
 ## Gereksinimler
 
@@ -64,15 +64,15 @@ F1 engellemesi yalnızca yukarıda belirtilen uygulamalarda etkindir. Diğer uyg
 - Pillow 13.0.0
 - pystray 0.19.5
 
-`tkinter`, `ctypes`, `json`, `math`, `os` ve `pathlib` modülleri Python standart kütüphanesinin bir parçasıdır.
+`tkinter`, `ctypes`, `json`, `math`, `os` ve `pathlib`, Python standart kütüphanesinin bir parçasıdır.
 
-Uygulamayı bildirim alanına küçültme özelliğini kullanabilmek için hem Pillow hem de pystray paketlerinin kurulu olması gerekir.
+Sistem tepsisine küçültme özelliğini kullanabilmek için hem Pillow hem de pystray gereklidir.
 
 ## Kurulum
 
 1. Proje dosyalarını bilgisayarınıza indirin veya depoyu klonlayın.
 2. Proje klasörünü açın.
-3. PowerShell'i bu klasörde başlatın.
+3. Bu klasörde PowerShell'i açın.
 4. Gerekli Python paketlerini yükleyin:
 
 ```powershell
@@ -102,7 +102,7 @@ pythonw .\HotkeyGuard.pyw
 
 Python bağımlılıklarını diğer projelerden ayrı tutmak için sanal ortam kullanabilirsiniz:
 
-1. Sanal ortam oluşturun:
+1. Bir sanal ortam oluşturun:
 
 ```powershell
 py -m venv .venv
@@ -130,9 +130,9 @@ deactivate
 
 1. `HotkeyGuard.pyw` dosyasını çalıştırın.
 2. Arayüzden engellemek istediğiniz kısayolları seçin.
-3. Korumayı etkinleştirmek için **Başlat** düğmesine basın.
-4. Koruma durumunu uygulama arayüzünden takip edin.
-5. Uygulamayı bildirim alanına küçültmek için ilgili seçeneği kullanın. Bu özelliğin çalışması için Pillow ve pystray paketlerinin kurulu olması gerekir.
+3. Korumayı etkinleştirmek için **Başlat** düğmesine tıklayın.
+4. Uygulama arayüzünden koruma durumunu takip edin.
+5. Uygulamayı sistem tepsisine göndermek için küçültme seçeneğini kullanın. Bu özelliğin çalışması için Pillow ve pystray kurulu olmalıdır.
 
 Dil tercihi aşağıdaki konumda saklanır:
 
@@ -140,60 +140,52 @@ Dil tercihi aşağıdaki konumda saklanır:
 %USERPROFILE%\.vectordevworks\shortcut_blocker\config.json
 ```
 
-Bu dosya yalnızca dil tercihini saklar. Kısayol engelleme seçenekleri uygulama ayarlarından belirlenebilir; bu seçeneklerin yapılandırma dosyasına kaydedildiği varsayılmamalıdır.
+Bu dosya dil seçimini saklar. Kısayol engelleme seçenekleri uygulama ayarlarından seçilebilir; bu seçeneklerin yapılandırma dosyasına kaydedildiğini varsaymayın.
 
-## Derleme (EXE Oluşturma)
+## EXE Oluşturma (Derleme)
 
 Python uygulamasını tek bir EXE dosyasına dönüştürmek için PyInstaller kullanılır.
 
-### 1. PyInstaller Kurulumu
+### 2. Proje Klasörüne Gitme
 
-PyInstaller'ın 6.22.3 sürümünü yükleyin:
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
-### 2. Proje Klasörüne Geçiş
-
-PowerShell'i proje klasöründe açın.
+Proje klasöründe PowerShell'i açın.
 
 ### 3. Derleme Betiğini Çalıştırma
 
-Aşağıdaki komutu çalıştırarak `embed_icon.ps1` betiğini başlatın:
+`embed_icon.ps1` betiğini başlatmak için aşağıdaki komutu çalıştırın:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\scripts\embed_icon.ps1"
 ```
 
-**Not:** `-ExecutionPolicy Bypass` parametresi, Windows'un yürütme ilkesi nedeniyle PowerShell betiklerinin çalıştırılmasını engelleyebildiği durumlarda kullanılır. Bu parametre yalnızca başlatılan PowerShell işlemi için geçerlidir ve sistem genelindeki güvenlik ayarlarını değiştirmez.
+**Not:** Windows, yürütme ilkesi nedeniyle PowerShell betiklerinin çalıştırılmasını engelleyebilir. `-ExecutionPolicy Bypass` parametresi bu nedenle kullanılır. Bu ayar yalnızca başlatılan PowerShell işlemi için geçerlidir. Sistem genelindeki güvenlik ayarları değiştirilmez.
 
-### 4. Derleme İşlemi
+### 4. Derleme Süreci
 
 Derleme betiği aşağıdaki işlemleri gerçekleştirir:
 
-1. Ana Python dosyasının ve `assets\icon.png` dosyasının mevcut olup olmadığını kontrol eder.
-2. PyInstaller'ın kullanılabilir olduğunu doğrular.
+1. Ana Python dosyasını ve `assets\icon.png` dosyasını kontrol eder.
+2. PyInstaller'ın kullanılabilir durumda olduğunu doğrular.
 3. Eski `dist` ve `build` klasörlerini temizler.
-4. Uygulamayı konsol penceresi göstermeyen tek dosyalı bir EXE olarak derler.
+4. Uygulamayı konsol penceresi olmadan, tek dosyalık bir EXE olarak derler.
 5. `assets` klasörünü ve uygulama simgesini derlemeye dahil eder.
 6. Oluşturulan EXE dosyasını kontrol eder.
 
 ### 5. Derleme Çıktısı
 
-Derleme başarıyla tamamlandığında EXE dosyası aşağıdaki konumda oluşturulur:
+Derleme başarıyla tamamlandıktan sonra EXE dosyası aşağıdaki konumda oluşturulur:
 
 ```text
 dist\HotkeyGuard.exe
 ```
 
-**Yeni bir sürüm derlemek için izlenecek adımlar:**
+**Yeni bir sürüm derlerken izlenecek adımlar:**
 
 1. PowerShell'i açın.
 2. PyInstaller'ın kurulu olduğundan emin olun.
-3. Proje klasörüne geçin.
+3. Proje klasörüne gidin.
 4. Derleme betiğini çalıştırın.
-5. Oluşturulan EXE dosyasını `dist` klasöründe bulabilirsiniz.
+5. Oluşturulan EXE dosyasını `dist` klasöründen alın.
 
 ## Geliştirici
 
@@ -201,4 +193,4 @@ dist\HotkeyGuard.exe
 
 ## Lisans
 
-Lisans koşulları hakkında bilgi edinmek için proje deposundaki `LICENSE` dosyasına bakın.
+Lisans koşulları için proje deposundaki `LICENSE` dosyasına bakın.

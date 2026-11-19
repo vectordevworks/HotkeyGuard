@@ -156,14 +156,6 @@ deactivate
 
 使用 PyInstaller 将 Python 应用程序打包为单个 EXE 文件。
 
-### 1. 安装 PyInstaller
-
-安装 PyInstaller 6.22.3：
-
-``` powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. 进入项目文件夹
 
 在项目文件夹中打开 PowerShell。

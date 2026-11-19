@@ -146,14 +146,6 @@ Este ficheiro guarda apenas a preferência de idioma. As opções de bloqueio de
 
 O PyInstaller é utilizado para converter a aplicação Python num único ficheiro EXE.
 
-### 1. Instalação do PyInstaller
-
-Instale a versão 6.22.3 do PyInstaller:
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. Aceder à pasta do projeto
 
 Abra o PowerShell na pasta do projeto.

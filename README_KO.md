@@ -146,14 +146,6 @@ deactivate
 
 PyInstaller를 사용하여 Python 애플리케이션을 단일 EXE 파일로 변환합니다.
 
-### 1. PyInstaller 설치
-
-PyInstaller 6.22.3 버전을 설치합니다.
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. 프로젝트 폴더 열기
 
 프로젝트 폴더에서 PowerShell을 실행합니다.

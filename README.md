@@ -146,14 +146,6 @@ This file stores the language selection. Shortcut blocking options can be select
 
 PyInstaller is used to convert the Python application into a single EXE file.
 
-### 1. Installing PyInstaller
-
-Install PyInstaller version 6.22.3:
-
-```powershell
-py -m pip install pyinstaller==6.22.3
-```
-
 ### 2. Navigating to the Project Folder
 
 Open PowerShell in the project folder.
