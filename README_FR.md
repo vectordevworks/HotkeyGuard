@@ -1,4 +1,4 @@
-# Bloqueur de raccourcis clavier
+# GardeRaccourcis
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Anglais"> Anglais
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turc"> Turc
 </a>
 
-Shortcut Blocker est une application de bureau légère développée en Python qui vous permet de bloquer certains raccourcis clavier sous Windows. Son interface graphique simple et intuitive vous aide à éviter les déclenchements accidentels de raccourcis et à gérer facilement les protections de votre choix.
+GardeRaccourcis est une application de bureau légère développée en Python qui vous permet de bloquer certains raccourcis clavier sous Windows. Son interface graphique simple et intuitive vous aide à éviter les déclenchements accidentels de raccourcis et à gérer facilement les protections de votre choix.
 
 ## Présentation générale
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Lancez l'application :
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Vous pouvez également utiliser la commande suivante :
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Environnement virtuel (Facultatif)
@@ -128,7 +128,7 @@ deactivate
 
 ## Utilisation
 
-1. Exécutez le fichier `ShortcutBlocker.pyw`.
+1. Exécutez le fichier `HotkeyGuard.pyw`.
 2. Sélectionnez dans l'interface les raccourcis que vous souhaitez bloquer.
 3. Cliquez sur **Démarrer** pour activer la protection.
 4. Consultez l'état de la protection depuis l'interface de l'application.
@@ -184,7 +184,7 @@ Le script de compilation effectue les opérations suivantes :
 Une fois la compilation terminée avec succès, le fichier EXE est créé à l'emplacement suivant :
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Étapes à suivre pour compiler une nouvelle version :**

@@ -1,4 +1,4 @@
-# Kısayol Engelleyici
+# KısayolBekçisi
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="İngilizce"> İngilizce
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </a>
 
-Kısayol Engelleyici, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenebilecek kısayolları kontrol altında tutabilir ve seçtiğiniz koruma özelliklerini kolayca yönetebilirsiniz.
+KısayolBekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenebilecek kısayolları kontrol altında tutabilir ve seçtiğiniz koruma özelliklerini kolayca yönetebilirsiniz.
 
 ## Genel Bakış
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Uygulamayı başlatın:
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Alternatif olarak:
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Sanal Ortam (İsteğe Bağlı)
@@ -128,7 +128,7 @@ deactivate
 
 ## Kullanım
 
-1. `ShortcutBlocker.pyw` dosyasını çalıştırın.
+1. `HotkeyGuard.pyw` dosyasını çalıştırın.
 2. Arayüzden engellemek istediğiniz kısayolları seçin.
 3. Korumayı etkinleştirmek için **Başlat** düğmesine basın.
 4. Koruma durumunu uygulama arayüzünden takip edin.
@@ -184,7 +184,7 @@ Derleme betiği aşağıdaki işlemleri gerçekleştirir:
 Derleme başarıyla tamamlandığında EXE dosyası aşağıdaki konumda oluşturulur:
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Yeni bir sürüm derlemek için izlenecek adımlar:**

@@ -1,8 +1,8 @@
-# ショートカットブロッカー
+# ショートカットガード
 
 \<a href="README.md">   \<img src="[https://flagcdn.com/gb.svg](https://flagcdn.com/gb.svg)" width="20" alt="英語"> 英語 \</a> | \<a href="README_DE.md">   \<img src="[https://flagcdn.com/de.svg](https://flagcdn.com/de.svg)" width="20" alt="ドイツ語"> ドイツ語 \</a> | \<a href="README_ES.md">   \<img src="[https://flagcdn.com/es.svg](https://flagcdn.com/es.svg)" width="20" alt="スペイン語"> スペイン語 \</a> | \<a href="README_FR.md">   \<img src="[https://flagcdn.com/fr.svg](https://flagcdn.com/fr.svg)" width="20" alt="フランス語"> フランス語 \</a> | \<a href="README_JA.md">   \<img src="[https://flagcdn.com/jp.svg](https://flagcdn.com/jp.svg)" width="20" alt="日本語"> 日本語 \</a> | \<a href="README_KO.md">   \<img src="[https://flagcdn.com/kr.svg](https://flagcdn.com/kr.svg)" width="20" alt="韓国語"> 韓国語 \</a> | \<a href="README_PT.md">   \<img src="[https://flagcdn.com/pt.svg](https://flagcdn.com/pt.svg)" width="20" alt="ポルトガル語"> ポルトガル語 \</a> | \<a href="README_RU.md">   \<img src="[https://flagcdn.com/ru.svg](https://flagcdn.com/ru.svg)" width="20" alt="ロシア語"> ロシア語 \</a> | \<a href="README_ZH_CN.md">   \<img src="[https://flagcdn.com/cn.svg](https://flagcdn.com/cn.svg)" width="20" alt="簡体字中国語"> 簡体字中国語 \</a> | \<a href="README_TR.md">   \<img src="[https://flagcdn.com/tr.svg](https://flagcdn.com/tr.svg)" width="20" alt="トルコ語"> トルコ語 \</a>
 
-Shortcut Blockerは、Windows上で特定のキーボードショートカットをブロックできる、Pythonベースの軽量なデスクトップアプリケーションです。シンプルなグラフィカルインターフェースを通じて、誤操作につながる可能性のあるショートカットを制御し、必要な保護機能を簡単に管理できます。
+ショートカットガードは、Windows上で特定のキーボードショートカットをブロックできる、Pythonベースの軽量なデスクトップアプリケーションです。シンプルなグラフィカルインターフェースを通じて、誤操作につながる可能性のあるショートカットを制御し、必要な保護機能を簡単に管理できます。
 
 ## 概要
 
@@ -51,13 +51,13 @@ pystray==0.19.5
 5. アプリケーションを起動します。
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 または、次のコマンドでも起動できます。
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## 仮想環境（任意）
@@ -90,7 +90,7 @@ deactivate
 
 ## 使用方法
 
-1. `ShortcutBlocker.pyw`ファイルを実行します。
+1. `HotkeyGuard.pyw`ファイルを実行します。
 2. インターフェースからブロックするショートカットを選択します。
 3. **開始** ボタンをクリックして保護機能を有効にします。
 4. アプリケーションのインターフェースで保護状態を確認します。
@@ -146,7 +146,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\scripts\embed_icon.ps
 ビルドが正常に完了すると、EXEファイルは次の場所に作成されます。
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **新しいバージョンをビルドする手順：**

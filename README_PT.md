@@ -1,4 +1,4 @@
-# Bloqueador de Atalhos de Teclado
+# ProtegeAtalhos
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Inglês"> Inglês
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turco"> Turco
 </a>
 
-O Shortcut Blocker é uma aplicação de ambiente de trabalho leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. A sua interface gráfica intuitiva facilita o controlo de atalhos que podem ser acionados acidentalmente e permite gerir facilmente as proteções pretendidas.
+O ProtegeAtalhos é uma aplicação de ambiente de trabalho leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. A sua interface gráfica intuitiva facilita o controlo de atalhos que podem ser acionados acidentalmente e permite gerir facilmente as proteções pretendidas.
 
 ## Visão geral
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Inicie a aplicação:
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Em alternativa, pode utilizar:
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Ambiente virtual (Opcional)
@@ -128,7 +128,7 @@ deactivate
 
 ## Utilização
 
-1. Execute o ficheiro `ShortcutBlocker.pyw`.
+1. Execute o ficheiro `HotkeyGuard.pyw`.
 2. Selecione na interface os atalhos que pretende bloquear.
 3. Clique no botão **Iniciar** para ativar a proteção.
 4. Consulte o estado da proteção através da interface da aplicação.
@@ -184,7 +184,7 @@ O script de compilação executa as seguintes operações:
 Após a conclusão bem-sucedida da compilação, o ficheiro EXE será criado na seguinte localização:
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Ordem dos passos para compilar uma nova versão:**

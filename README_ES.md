@@ -1,4 +1,4 @@
-# Bloqueador de Atajos de Teclado
+# ProtegeAtajos
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Inglés"> Inglés
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turco"> Turco
 </a>
 
-Shortcut Blocker es una aplicación de escritorio ligera basada en Python que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica facilita la prevención de atajos activados accidentalmente y la gestión de las protecciones seleccionadas.
+ProtegeAtajos es una aplicación de escritorio ligera basada en Python que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica facilita la prevención de atajos activados accidentalmente y la gestión de las protecciones seleccionadas.
 
 ## Descripción general
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Inicie la aplicación:
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Como alternativa, puede utilizar:
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Entorno virtual (Opcional)
@@ -128,7 +128,7 @@ deactivate
 
 ## Uso
 
-1. Ejecute el archivo `ShortcutBlocker.pyw`.
+1. Ejecute el archivo `HotkeyGuard.pyw`.
 2. Seleccione en la interfaz los atajos que desea bloquear.
 3. Haga clic en **Iniciar** para activar la protección.
 4. Consulte el estado de la protección desde la interfaz de la aplicación.
@@ -184,7 +184,7 @@ El script de compilación realiza las siguientes operaciones:
 Una vez completada correctamente la compilación, el archivo EXE se crea en la siguiente ubicación:
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Pasos para compilar una nueva versión:**

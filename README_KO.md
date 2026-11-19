@@ -1,4 +1,4 @@
-# 단축키 차단기
+# 단축키지킴이
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="영어"> 영어
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="터키어"> 터키어
 </a>
 
-Shortcut Blocker는 Windows에서 특정 키보드 단축키를 차단할 수 있는 Python 기반의 가벼운 데스크톱 애플리케이션입니다. 간단한 그래픽 인터페이스를 통해 실수로 실행될 수 있는 단축키를 제어하고 원하는 보호 기능을 쉽게 관리할 수 있습니다.
+단축키지킴이는 Windows에서 특정 키보드 단축키를 차단할 수 있는 Python 기반의 가벼운 데스크톱 애플리케이션입니다. 간단한 그래픽 인터페이스를 통해 실수로 실행될 수 있는 단축키를 제어하고 원하는 보호 기능을 쉽게 관리할 수 있습니다.
 
 ## 개요
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. 애플리케이션을 실행합니다.
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 또는 다음 명령을 사용할 수 있습니다.
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## 가상 환경 (선택 사항)
@@ -128,7 +128,7 @@ deactivate
 
 ## 사용 방법
 
-1. `ShortcutBlocker.pyw` 파일을 실행합니다.
+1. `HotkeyGuard.pyw` 파일을 실행합니다.
 2. 인터페이스에서 차단하려는 단축키를 선택합니다.
 3. 보호 기능을 활성화하려면 **시작** 버튼을 클릭합니다.
 4. 애플리케이션 인터페이스에서 보호 상태를 확인합니다.
@@ -184,7 +184,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\scripts\embed_icon.ps
 빌드가 성공적으로 완료되면 EXE 파일이 다음 위치에 생성됩니다.
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **새 버전을 빌드하는 방법:**

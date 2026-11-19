@@ -1,4 +1,4 @@
-# Tastenkombinations-Blocker
+# TastenkürzelSchutz
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Englisch"> Englisch
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkisch"> Türkisch
 </a>
 
-Der Tastenkombinations-Blocker ist eine schlanke, Python-basierte Desktopanwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Die übersichtliche grafische Benutzeroberfläche hilft Ihnen dabei, versehentlich ausgelöste Tastenkombinationen zu verhindern und die gewünschten Schutzfunktionen einfach zu verwalten.
+Der TastenkürzelSchutz ist eine schlanke, Python-basierte Desktopanwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Die übersichtliche grafische Benutzeroberfläche hilft Ihnen dabei, versehentlich ausgelöste Tastenkombinationen zu verhindern und die gewünschten Schutzfunktionen einfach zu verwalten.
 
 ## Überblick
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Starten Sie die Anwendung:
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Alternativ können Sie folgenden Befehl verwenden:
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Virtuelle Umgebung (Optional)
@@ -128,7 +128,7 @@ deactivate
 
 ## Verwendung
 
-1. Führen Sie die Datei `ShortcutBlocker.pyw` aus.
+1. Führen Sie die Datei `HotkeyGuard.pyw` aus.
 2. Wählen Sie in der Benutzeroberfläche die Tastenkombinationen aus, die Sie blockieren möchten.
 3. Klicken Sie auf **Starten**, um den Schutz zu aktivieren.
 4. Überprüfen Sie den Schutzstatus über die Anwendungsoberfläche.
@@ -184,7 +184,7 @@ Das Build-Skript führt folgende Schritte aus:
 Nach erfolgreichem Abschluss des Build-Vorgangs wird die EXE-Datei unter folgendem Pfad erstellt:
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Vorgehensweise zum Erstellen einer neuen Version:**

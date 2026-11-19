@@ -1,4 +1,4 @@
-# Shortcut Blocker
+# HotkeyGuard
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="English"> English
@@ -40,7 +40,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turkish"> Turkish
 </a>
 
-Shortcut Blocker is a lightweight Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you choose.
+HotkeyGuard is a lightweight Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you choose.
 
 ## Overview
 
@@ -89,13 +89,13 @@ pystray==0.19.5
 5. Launch the application:
 
 ```powershell
-pyw .\ShortcutBlocker.pyw
+pyw .\HotkeyGuard.pyw
 ```
 
 Alternatively:
 
 ```powershell
-pythonw .\ShortcutBlocker.pyw
+pythonw .\HotkeyGuard.pyw
 ```
 
 ## Virtual Environment (Optional)
@@ -128,7 +128,7 @@ deactivate
 
 ## Usage
 
-1. Run the `ShortcutBlocker.pyw` file.
+1. Run the `HotkeyGuard.pyw` file.
 2. Select the shortcuts you want to block in the interface.
 3. Click the **Start** button to enable protection.
 4. Monitor the protection status through the application interface.
@@ -184,7 +184,7 @@ The build script performs the following operations:
 After the build completes successfully, the EXE file is created at the following location:
 
 ```text
-dist\ShortcutBlocker.exe
+dist\HotkeyGuard.exe
 ```
 
 **Steps to follow when building a new version:**
