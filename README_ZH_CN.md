@@ -1,5 +1,3 @@
-# 快捷键拦截器
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="英语"> 英语
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="俄语"> 俄语
 </a>
 |
-<strong>
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="简体中文"> 简体中文
-</strong>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="土耳其语"> 土耳其语
 </a>
+|
+<strong>
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="简体中文"> 简体中文
+</strong>
 
-快捷键拦截器是一款基于 Python 开发的轻量级 Windows
+### 快捷键拦截器是一款基于 Python 开发的轻量级 Windows
 桌面应用程序，可用于屏蔽指定的键盘快捷键。通过简洁的图形界面，您可以控制意外触发的快捷键，并轻松管理所选的防护功能。
 
 ## 概述

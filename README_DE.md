@@ -1,5 +1,3 @@
-# TastenkürzelSchutz
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Englisch"> Englisch
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Russisch"> Russisch
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Vereinfachtes Chinesisch"> Vereinfachtes Chinesisch
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkisch"> Türkisch
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Vereinfachtes Chinesisch"> Vereinfachtes Chinesisch
+</a>
 
-Der TastenkürzelSchutz ist eine schlanke, Python-basierte Desktopanwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Die übersichtliche grafische Benutzeroberfläche hilft Ihnen dabei, versehentlich ausgelöste Tastenkombinationen zu verhindern und die gewünschten Schutzfunktionen einfach zu verwalten.
+### Der TastenkürzelSchutz ist eine schlanke, Python-basierte Desktopanwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Die übersichtliche grafische Benutzeroberfläche hilft Ihnen dabei, versehentlich ausgelöste Tastenkombinationen zu verhindern und die gewünschten Schutzfunktionen einfach zu verwalten.
 
 ## Überblick
 

@@ -1,5 +1,3 @@
-# ショートカットガード
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="英語"> 英語
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="ロシア語"> ロシア語
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="簡体字中国語"> 簡体字中国語
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="トルコ語"> トルコ語
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="簡体字中国語"> 簡体字中国語
+</a>
 
-ショートカットガードは、Windows上で特定のキーボードショートカットをブロックできる、Pythonベースの軽量なデスクトップアプリケーションです。シンプルなグラフィカルインターフェースを通じて、誤操作につながる可能性のあるショートカットを制御し、必要な保護機能を簡単に管理できます。
+### ショートカットガードは、Windows上で特定のキーボードショートカットをブロックできる、Pythonベースの軽量なデスクトップアプリケーションです。シンプルなグラフィカルインターフェースを通じて、誤操作につながる可能性のあるショートカットを制御し、必要な保護機能を簡単に管理できます。
 
 ## 概要
 

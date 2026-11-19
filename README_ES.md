@@ -1,5 +1,3 @@
-# ProtegeAtajos
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Inglés"> Inglés
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Ruso"> Ruso
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chino simplificado"> Chino simplificado
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turco"> Turco
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chino simplificado"> Chino simplificado
+</a>
 
-ProtegeAtajos es una aplicación de escritorio ligera basada en Python que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica facilita la prevención de atajos activados accidentalmente y la gestión de las protecciones seleccionadas.
+### ProtegeAtajos es una aplicación de escritorio ligera basada en Python que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica facilita la prevención de atajos activados accidentalmente y la gestión de las protecciones seleccionadas.
 
 ## Descripción general
 

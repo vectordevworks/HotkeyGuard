@@ -1,5 +1,3 @@
-# 단축키지킴이
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="영어"> 영어
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="러시아어"> 러시아어
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="중국어 간체"> 중국어 간체
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="터키어"> 터키어
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="중국어 간체"> 중국어 간체
+</a>
 
-단축키지킴이는 Windows에서 특정 키보드 단축키를 차단할 수 있는 Python 기반의 가벼운 데스크톱 애플리케이션입니다. 간단한 그래픽 인터페이스를 통해 실수로 실행될 수 있는 단축키를 제어하고 원하는 보호 기능을 쉽게 관리할 수 있습니다.
+### 단축키지킴이는 Windows에서 특정 키보드 단축키를 차단할 수 있는 Python 기반의 가벼운 데스크톱 애플리케이션입니다. 간단한 그래픽 인터페이스를 통해 실수로 실행될 수 있는 단축키를 제어하고 원하는 보호 기능을 쉽게 관리할 수 있습니다.
 
 ## 개요
 

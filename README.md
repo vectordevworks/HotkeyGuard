@@ -1,5 +1,3 @@
-# HotkeyGuard
-
 <strong>
   <img src="https://flagcdn.com/gb.svg" width="20" alt="English"> English
 </strong>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Russian"> Russian
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Simplified Chinese"> Simplified Chinese
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turkish"> Turkish
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Simplified Chinese"> Simplified Chinese
+</a>
 
-HotkeyGuard is a lightweight Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you choose.
+### HotkeyGuard is a lightweight Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you choose.
 
 ## Overview
 

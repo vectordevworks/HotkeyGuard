@@ -1,5 +1,3 @@
-# GardeRaccourcis
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Anglais"> Anglais
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Russe"> Russe
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinois simplifié"> Chinois simplifié
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turc"> Turc
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinois simplifié"> Chinois simplifié
+</a>
 
-GardeRaccourcis est une application de bureau légère développée en Python qui vous permet de bloquer certains raccourcis clavier sous Windows. Son interface graphique simple et intuitive vous aide à éviter les déclenchements accidentels de raccourcis et à gérer facilement les protections de votre choix.
+### GardeRaccourcis est une application de bureau légère développée en Python qui vous permet de bloquer certains raccourcis clavier sous Windows. Son interface graphique simple et intuitive vous aide à éviter les déclenchements accidentels de raccourcis et à gérer facilement les protections de votre choix.
 
 ## Présentation générale
 

@@ -1,5 +1,3 @@
-# ProtegeAtalhos
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="Inglês"> Inglês
 </a>
@@ -32,15 +30,15 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Russo"> Russo
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinês simplificado"> Chinês simplificado
-</a>
-|
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Turco"> Turco
 </a>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinês simplificado"> Chinês simplificado
+</a>
 
-O ProtegeAtalhos é uma aplicação de ambiente de trabalho leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. A sua interface gráfica intuitiva facilita o controlo de atalhos que podem ser acionados acidentalmente e permite gerir facilmente as proteções pretendidas.
+### O ProtegeAtalhos é uma aplicação de ambiente de trabalho leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. A sua interface gráfica intuitiva facilita o controlo de atalhos que podem ser acionados acidentalmente e permite gerir facilmente as proteções pretendidas.
 
 ## Visão geral
 
