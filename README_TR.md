@@ -1,4 +1,4 @@
-# Shortcut Blocker
+# Kısayol Engelleyici
 
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="İngilizce"> İngilizce
@@ -40,20 +40,20 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </a>
 
-Shortcut Blocker, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan basit bir masaüstü uygulamasıdır. Uygulama, yanlışlıkla kullanılabilecek kısayolları kontrol altında tutmanıza yardımcı olur.
+Kısayol Engelleyici, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenebilecek kısayolları kontrol altında tutabilir ve seçtiğiniz koruma özelliklerini kolayca yönetebilirsiniz.
 
 ## Genel Bakış
 
-Uygulama, Windows klavye olaylarını izleyerek seçtiğiniz kısayolları engeller. Engelleme koruması uygulama açıldığında otomatik başlamaz; arayüzden **Başlat** düğmesine basmanız gerekir.
+Uygulama, Windows klavye olaylarını izleyerek seçtiğiniz kısayolları engeller. Koruma özelliği, uygulama başlatıldığında otomatik olarak etkinleşmez. Korumayı etkinleştirmek için arayüzdeki **Başlat** düğmesine basmanız gerekir.
 
 ## Özellikler
 
-- **Shift + Delete engelleme:** Kalıcı silme kısayolunu engeller.
-- **Uygulamaya bağlı F1 engelleme:** F1 tuşunu Chrome, Microsoft Edge, Firefox, Brave, Opera ve Windows Masaüstü / Dosya Gezgini üzerinde engeller.
-- **Seçilebilir korumalar:** Shift + Delete ve F1 engellemelerini arayüzden ayrı ayrı açıp kapatabilirsiniz.
-- **Sistem tepsisine küçültme:** Uygulamayı sistem tepsisine küçültebilirsiniz.
-- **Çoklu dil desteği:** Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce, Rusça, Japonca, Basitleştirilmiş Çince ve Korece.
-- **Kaydırılabilir arayüz:** Uygulama penceresinin içeriği kaydırılabilir.
+- **Shift + Delete engelleme:** Dosyaların kalıcı olarak silinmesini sağlayan Shift + Delete kısayolunu engeller.
+- **Uygulamaya bağlı F1 engelleme:** F1 tuşunu Google Chrome, Microsoft Edge, Mozilla Firefox, Brave, Opera ve Windows masaüstünde / Dosya Gezgini'nde engeller.
+- **Seçilebilir korumalar:** Shift + Delete ve F1 engellemelerini arayüz üzerinden birbirinden bağımsız olarak etkinleştirip devre dışı bırakabilirsiniz.
+- **Bildirim alanına küçültme:** Uygulamayı Windows bildirim alanına küçültmenizi sağlar.
+- **Çoklu dil desteği:** Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce, Rusça, Japonca, Basitleştirilmiş Çince ve Korece dillerini destekler.
+- **Kaydırılabilir arayüz:** Uygulama penceresinin içeriğini kaydırmanızı sağlar.
 
 F1 engellemesi yalnızca yukarıda belirtilen uygulamalarda etkindir. Diğer uygulamalarda ve oyunlarda F1 tuşu engellenmez.
 
@@ -64,9 +64,9 @@ F1 engellemesi yalnızca yukarıda belirtilen uygulamalarda etkindir. Diğer uyg
 - Pillow 13.0.0
 - pystray 0.19.5
 
-`tkinter`, `ctypes`, `json`, `math`, `os` ve `pathlib` Python standart kütüphanesinin parçalarıdır.
+`tkinter`, `ctypes`, `json`, `math`, `os` ve `pathlib` modülleri Python standart kütüphanesinin bir parçasıdır.
 
-Sistem tepsisine küçültme özelliğini kullanmak için hem Pillow hem de pystray gereklidir.
+Uygulamayı bildirim alanına küçültme özelliğini kullanabilmek için hem Pillow hem de pystray paketlerinin kurulu olması gerekir.
 
 ## Kurulum
 
@@ -100,13 +100,30 @@ pythonw .\ShortcutBlocker.pyw
 
 ## Sanal Ortam (İsteğe Bağlı)
 
-Bağımlılıkları proje için ayrı bir sanal ortamda tutabilirsiniz:
+Python bağımlılıklarını diğer projelerden ayrı tutmak için sanal ortam kullanabilirsiniz:
+
+1. Sanal ortam oluşturun:
 
 ```powershell
 py -m venv .venv
+```
+
+2. Sanal ortamı etkinleştirin:
+
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
+
+3. Gerekli bağımlılıkları yükleyin:
+
+```powershell
 py -m pip install -r requirements.txt
-py deactivate 
+```
+
+4. İşiniz bittiğinde sanal ortamı devre dışı bırakın:
+
+```powershell
+deactivate
 ```
 
 ## Kullanım
@@ -115,7 +132,7 @@ py deactivate
 2. Arayüzden engellemek istediğiniz kısayolları seçin.
 3. Korumayı etkinleştirmek için **Başlat** düğmesine basın.
 4. Koruma durumunu uygulama arayüzünden takip edin.
-5. Uygulamayı sistem tepsisine küçültmek için küçültme seçeneğini kullanın. Bu özellik için Pillow ve pystray kurulu olmalıdır.
+5. Uygulamayı bildirim alanına küçültmek için ilgili seçeneği kullanın. Bu özelliğin çalışması için Pillow ve pystray paketlerinin kurulu olması gerekir.
 
 Dil tercihi aşağıdaki konumda saklanır:
 
@@ -123,36 +140,60 @@ Dil tercihi aşağıdaki konumda saklanır:
 %USERPROFILE%\.vectordevworks\shortcut_blocker\config.json
 ```
 
-Bu dosya dil seçimini saklar. Kısayol engelleme seçenekleri uygulama ayarlarında seçilebilir; bu seçeneklerin config dosyasına kaydedildiği varsayılmamalıdır.
+Bu dosya yalnızca dil tercihini saklar. Kısayol engelleme seçenekleri uygulama ayarlarından belirlenebilir; bu seçeneklerin yapılandırma dosyasına kaydedildiği varsayılmamalıdır.
 
 ## Derleme (EXE Oluşturma)
 
-EXE oluşturmak için PyInstaller gerekir. PyInstaller'ı ayrıca yükleyin:
+Python uygulamasını tek bir EXE dosyasına dönüştürmek için PyInstaller kullanılır.
+
+### 1. PyInstaller Kurulumu
+
+PyInstaller'ın 6.22.3 sürümünü yükleyin:
 
 ```powershell
 py -m pip install pyinstaller==6.22.3
 ```
 
-Ardından PowerShell'i proje klasöründe açın ve derleme scriptini çalıştırın:
+### 2. Proje Klasörüne Geçiş
+
+PowerShell'i proje klasöründe açın.
+
+### 3. Derleme Betiğini Çalıştırma
+
+Aşağıdaki komutu çalıştırarak `embed_icon.ps1` betiğini başlatın:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\scripts\embed_icon.ps1"
 ```
 
-Script şu işlemleri gerçekleştirir:
+**Not:** `-ExecutionPolicy Bypass` parametresi, Windows'un yürütme ilkesi nedeniyle PowerShell betiklerinin çalıştırılmasını engelleyebildiği durumlarda kullanılır. Bu parametre yalnızca başlatılan PowerShell işlemi için geçerlidir ve sistem genelindeki güvenlik ayarlarını değiştirmez.
 
-1. Ana Python dosyasını ve `assets\icon.png` dosyasını kontrol eder.
+### 4. Derleme İşlemi
+
+Derleme betiği aşağıdaki işlemleri gerçekleştirir:
+
+1. Ana Python dosyasının ve `assets\icon.png` dosyasının mevcut olup olmadığını kontrol eder.
 2. PyInstaller'ın kullanılabilir olduğunu doğrular.
 3. Eski `dist` ve `build` klasörlerini temizler.
-4. Uygulamayı tek dosyalı, konsol penceresi göstermeyen bir EXE olarak derler.
-5. `assets` klasörünü ve uygulama ikonunu derlemeye dahil eder.
+4. Uygulamayı konsol penceresi göstermeyen tek dosyalı bir EXE olarak derler.
+5. `assets` klasörünü ve uygulama simgesini derlemeye dahil eder.
 6. Oluşturulan EXE dosyasını kontrol eder.
 
-Derleme tamamlandığında uygulama şu konumda bulunur:
+### 5. Derleme Çıktısı
+
+Derleme başarıyla tamamlandığında EXE dosyası aşağıdaki konumda oluşturulur:
 
 ```text
 dist\ShortcutBlocker.exe
 ```
+
+**Yeni bir sürüm derlemek için izlenecek adımlar:**
+
+1. PowerShell'i açın.
+2. PyInstaller'ın kurulu olduğundan emin olun.
+3. Proje klasörüne geçin.
+4. Derleme betiğini çalıştırın.
+5. Oluşturulan EXE dosyasını `dist` klasöründe bulabilirsiniz.
 
 ## Geliştirici
 
@@ -160,4 +201,4 @@ dist\ShortcutBlocker.exe
 
 ## Lisans
 
-Lisans koşulları için proje deposundaki `LICENSE` dosyasına bakın.
+Lisans koşulları hakkında bilgi edinmek için proje deposundaki `LICENSE` dosyasına bakın.
