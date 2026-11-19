@@ -38,8 +38,7 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinois simplifié"> Chinois simplifié
 </a>
 
-### GardeRaccourcis est une application de bureau légère développée en Python qui vous permet de bloquer certains raccourcis clavier sous Windows. Son interface graphique simple et intuitive vous aide à éviter les déclenchements accidentels de raccourcis et à gérer facilement les protections de votre choix.
-
+### Protection des raccourcis clavier est une application de bureau légère, développée en Python, qui vous permet de bloquer certains raccourcis clavier sous Windows. Grâce à son interface graphique simple, vous pouvez contrôler les raccourcis déclenchés accidentellement et gérer facilement les protections souhaitées.
 ## Présentation générale
 
 L'application surveille les événements du clavier sous Windows et bloque les raccourcis que vous sélectionnez. La protection ne s'active pas automatiquement au démarrage de l'application ; vous devez cliquer sur le bouton **Démarrer** dans l'interface.

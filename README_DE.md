@@ -38,7 +38,7 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Vereinfachtes Chinesisch"> Vereinfachtes Chinesisch
 </a>
 
-### Der TastenkürzelSchutz ist eine schlanke, Python-basierte Desktopanwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Die übersichtliche grafische Benutzeroberfläche hilft Ihnen dabei, versehentlich ausgelöste Tastenkombinationen zu verhindern und die gewünschten Schutzfunktionen einfach zu verwalten.
+### Tastenkürzel-Schutz ist eine leichte, Python-basierte Desktop-Anwendung, mit der Sie bestimmte Tastenkombinationen unter Windows blockieren können. Dank der einfachen grafischen Benutzeroberfläche können Sie versehentlich ausgelöste Tastenkombinationen kontrollieren und die gewünschten Schutzfunktionen problemlos verwalten.
 
 ## Überblick
 

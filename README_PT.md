@@ -38,7 +38,7 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Chinês simplificado"> Chinês simplificado
 </a>
 
-### O ProtegeAtalhos é uma aplicação de ambiente de trabalho leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. A sua interface gráfica intuitiva facilita o controlo de atalhos que podem ser acionados acidentalmente e permite gerir facilmente as proteções pretendidas.
+### Proteção de atalhos de teclado é uma aplicação de desktop leve, desenvolvida em Python, que permite bloquear determinados atalhos de teclado no Windows. Com sua interface gráfica simples, você pode controlar atalhos acionados acidentalmente e gerenciar facilmente as proteções desejadas.
 
 ## Visão geral
 

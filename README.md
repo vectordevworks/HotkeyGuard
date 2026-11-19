@@ -38,7 +38,7 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Simplified Chinese"> Simplified Chinese
 </a>
 
-### HotkeyGuard is a lightweight Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you choose.
+### Hotkey Guard is a lightweight, Python-based desktop application that allows you to block specific keyboard shortcuts on Windows. Its simple graphical interface helps you keep accidentally triggered shortcuts under control and easily manage the protections you need.
 
 ## Overview
 

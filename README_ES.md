@@ -38,7 +38,7 @@
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Chino simplificado"> Chino simplificado
 </a>
 
-### ProtegeAtajos es una aplicación de escritorio ligera basada en Python que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica facilita la prevención de atajos activados accidentalmente y la gestión de las protecciones seleccionadas.
+### Protección de atajos de teclado es una aplicación de escritorio ligera, basada en Python, que permite bloquear determinados atajos de teclado en Windows. Su sencilla interfaz gráfica le permite controlar los atajos activados accidentalmente y gestionar fácilmente las protecciones que necesita.
 
 ## Descripción general
 
