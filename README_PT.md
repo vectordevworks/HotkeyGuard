@@ -24,9 +24,9 @@
   <img src="https://flagcdn.com/kr.svg" width="20" alt="Coreano"> Coreano
 </a>
 |
-<a href="README_PT.md">
+<strong>
   <img src="https://flagcdn.com/pt.svg" width="20" alt="Português"> Português
-</a>
+</strong>
 |
 <a href="README_RU.md">
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Russo"> Russo

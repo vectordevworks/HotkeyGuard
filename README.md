@@ -1,8 +1,8 @@
 # HotkeyGuard
 
-<a href="README.md">
+<strong>
   <img src="https://flagcdn.com/gb.svg" width="20" alt="English"> English
-</a>
+</strong>
 |
 <a href="README_DE.md">
   <img src="https://flagcdn.com/de.svg" width="20" alt="German"> German

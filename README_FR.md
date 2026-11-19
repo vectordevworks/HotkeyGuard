@@ -12,9 +12,9 @@
   <img src="https://flagcdn.com/es.svg" width="20" alt="Espagnol"> Espagnol
 </a>
 |
-<a href="README_FR.md">
+<strong>
   <img src="https://flagcdn.com/fr.svg" width="20" alt="Français"> Français
-</a>
+</strong>
 |
 <a href="README_JA.md">
   <img src="https://flagcdn.com/jp.svg" width="20" alt="Japonais"> Japonais

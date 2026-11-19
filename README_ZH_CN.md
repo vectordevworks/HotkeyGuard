@@ -32,9 +32,9 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="俄语"> 俄语
 </a>
 |
-<a href="README_ZH_CN.md">
+<strong>
   <img src="https://flagcdn.com/cn.svg" width="20" alt="简体中文"> 简体中文
-</a>
+</strong>
 |
 <a href="README_TR.md">
   <img src="https://flagcdn.com/tr.svg" width="20" alt="土耳其语"> 土耳其语

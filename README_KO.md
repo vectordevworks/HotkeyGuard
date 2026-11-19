@@ -20,9 +20,9 @@
   <img src="https://flagcdn.com/jp.svg" width="20" alt="일본어"> 일본어
 </a>
 |
-<a href="README_KO.md">
+<strong>
   <img src="https://flagcdn.com/kr.svg" width="20" alt="한국어"> 한국어
-</a>
+</strong>
 |
 <a href="README_PT.md">
   <img src="https://flagcdn.com/pt.svg" width="20" alt="포르투갈어"> 포르투갈어

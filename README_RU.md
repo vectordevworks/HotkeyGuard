@@ -28,9 +28,9 @@
   <img src="https://flagcdn.com/pt.svg" width="20" alt="Португальский"> Португальский
 </a>
 |
-<a href="README_RU.md">
+<strong>
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Русский"> Русский
-</a>
+</strong>
 |
 <a href="README_ZH_CN.md">
   <img src="https://flagcdn.com/cn.svg" width="20" alt="Упрощённый китайский"> Упрощённый китайский
