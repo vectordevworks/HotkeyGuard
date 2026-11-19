@@ -37,15 +37,22 @@ if os.name != "nt":
 # DOSYA YOLLARI
 # ============================================================
 
+# PyInstaller --onefile uygulamalarında paketlenen dosyalar _MEIPASS
+# dizinine çıkarılır. EXE'nin bulunduğu dizin kaynak dosyaların dizini değildir.
 if getattr(sys, "frozen", False):
     BASE_DIR = Path(sys.executable).resolve().parent
+    RESOURCE_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR))
 else:
     BASE_DIR = Path(__file__).resolve().parent
+    RESOURCE_DIR = BASE_DIR
 
-ASSETS_DIR = BASE_DIR / "assets"
+ASSETS_DIR = RESOURCE_DIR / "assets"
 
 ICON_PATH = ASSETS_DIR / "icon.png"
+ICON_ICO_PATH = ASSETS_DIR / "icon.ico"
 LANGUAGE_ICON_PATH = ASSETS_DIR / "language.png"
+
+APP_USER_MODEL_ID = "VectorDevWorks.ShortcutBlocker"
 
 CONFIG_DIR = Path.home() / ".vectordevworks" / "shortcut_blocker"
 CONFIG_FILE = CONFIG_DIR / "config.json"
@@ -57,6 +64,39 @@ CONFIG_FILE = CONFIG_DIR / "config.json"
 
 user32 = ctypes.WinDLL("user32", use_last_error=True)
 kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+shell32 = ctypes.WinDLL("shell32", use_last_error=True)
+
+# Pencere ve görev çubuğu simgesini doğrudan Windows'a bildirmek için.
+WM_SETICON = 0x0080
+ICON_SMALL = 0
+ICON_BIG = 1
+IMAGE_ICON = 1
+LR_LOADFROMFILE = 0x0010
+LR_DEFAULTSIZE = 0x0040
+
+user32.SendMessageW.argtypes = [
+    wintypes.HWND,
+    wintypes.UINT,
+    wintypes.WPARAM,
+    wintypes.LPARAM
+]
+user32.SendMessageW.restype = ctypes.c_ssize_t
+
+user32.LoadImageW.argtypes = [
+    wintypes.HANDLE,
+    wintypes.LPCWSTR,
+    wintypes.UINT,
+    ctypes.c_int,
+    ctypes.c_int,
+    wintypes.UINT
+]
+user32.LoadImageW.restype = wintypes.HANDLE
+
+user32.DestroyIcon.argtypes = [wintypes.HANDLE]
+user32.DestroyIcon.restype = wintypes.BOOL
+
+shell32.SetCurrentProcessExplicitAppUserModelID.argtypes = [wintypes.LPCWSTR]
+shell32.SetCurrentProcessExplicitAppUserModelID.restype = ctypes.c_long
 
 
 # ============================================================
@@ -739,6 +779,8 @@ class ShortcutBlocker:
         self.language = self.load_language()
 
         self.window_icon = None
+        self.window_icon_handle = None
+        self.window_icon_file = None
         self.language_icon = None
 
         self.language_menu_window = None
@@ -956,12 +998,72 @@ class ShortcutBlocker:
             self.set_settings_state("normal")
 
     def load_window_icon(self):
+        """
+        PNG simgesini Tkinter başlık simgesi olarak yükler.
+        Pillow mevcutsa PNG'den çok boyutlu ICO üretir ve Windows'a
+        WM_SETICON göndererek pencere/görev çubuğu simgesini de ayarlar.
+        """
         try:
+            ico_path = ICON_ICO_PATH if ICON_ICO_PATH.is_file() else None
+
+            if ico_path is None and ICON_PATH.is_file() and PILLOW_AVAILABLE:
+                CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+                ico_path = CONFIG_DIR / "shortcut_blocker_icon.ico"
+
+                with Image.open(ICON_PATH) as source:
+                    icon_image = source.convert("RGBA")
+                    icon_image.save(
+                        ico_path,
+                        format="ICO",
+                        sizes=[
+                            (16, 16),
+                            (24, 24),
+                            (32, 32),
+                            (48, 48),
+                            (64, 64),
+                            (128, 128),
+                            (256, 256)
+                        ]
+                    )
+
+            if ico_path is not None and ico_path.is_file():
+                self.window_icon_file = str(ico_path)
+
+                try:
+                    self.root.iconbitmap(default=self.window_icon_file)
+                    self.root.iconbitmap(self.window_icon_file)
+                except tk.TclError as error:
+                    print(f"Tk iconbitmap loading error: {error}")
+
             if ICON_PATH.is_file():
                 self.window_icon = tk.PhotoImage(file=str(ICON_PATH))
                 self.root.iconphoto(True, self.window_icon)
 
-        except (tk.TclError, OSError) as error:
+            if self.window_icon_file:
+                # Tkinter simge ayarından sonra Windows HWND'sine de
+                # büyük ve küçük simgeyi doğrudan gönder.
+                self.root.update_idletasks()
+                hwnd = wintypes.HWND(self.root.winfo_id())
+
+                icon_handle = user32.LoadImageW(
+                    None,
+                    self.window_icon_file,
+                    IMAGE_ICON,
+                    0,
+                    0,
+                    LR_LOADFROMFILE | LR_DEFAULTSIZE
+                )
+
+                if icon_handle:
+                    self.window_icon_handle = icon_handle
+                    user32.SendMessageW(
+                        hwnd, WM_SETICON, ICON_SMALL, icon_handle
+                    )
+                    user32.SendMessageW(
+                        hwnd, WM_SETICON, ICON_BIG, icon_handle
+                    )
+
+        except (tk.TclError, OSError, ValueError) as error:
             print(f"Window icon loading error: {error}")
             self.window_icon = None
 
@@ -2075,12 +2177,25 @@ class ShortcutBlocker:
         except tk.TclError:
             pass
 
+        if self.window_icon_handle:
+            try:
+                user32.DestroyIcon(self.window_icon_handle)
+            except Exception:
+                pass
+            self.window_icon_handle = None
+
 
 # ============================================================
 # PROGRAM GİRİŞ NOKTASI
 # ============================================================
 
 def main():
+    # Windows görev çubuğunda uygulamaya sabit bir kimlik ver.
+    try:
+        shell32.SetCurrentProcessExplicitAppUserModelID(APP_USER_MODEL_ID)
+    except Exception as error:
+        print(f"AppUserModelID setup error: {error}")
+
     start_minimized = "--minimized" in sys.argv[1:]
     root = tk.Tk()
 
