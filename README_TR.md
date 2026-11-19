@@ -39,7 +39,6 @@
 <strong>
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </strong>
-```
 
 KısayolBekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenebilecek kısayolları kontrol altında tutabilir ve seçtiğiniz koruma özelliklerini kolayca yönetebilirsiniz.
 
