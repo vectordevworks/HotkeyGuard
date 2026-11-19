@@ -1,5 +1,3 @@
-# Kısayol Bekçisi
-
 <a href="README.md">
   <img src="https://flagcdn.com/gb.svg" width="20" alt="İngilizce"> İngilizce
 </a>
@@ -40,7 +38,7 @@
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </strong>
 
-Kısayol Bekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenen kısayolları kontrol altında tutabilir ve istediğiniz korumaları kolayca yönetebilirsiniz.
+# Kısayol Bekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenen kısayolları kontrol altında tutabilir ve istediğiniz korumaları kolayca yönetebilirsiniz.
 
 ## Genel Bakış
 
