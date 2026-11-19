@@ -30,13 +30,13 @@
   <img src="https://flagcdn.com/ru.svg" width="20" alt="Rusça"> Rusça
 </a>
 |
-<a href="README_ZH_CN.md">
-  <img src="https://flagcdn.com/cn.svg" width="20" alt="Basitleştirilmiş Çince"> Basitleştirilmiş Çince
-</a>
-|
 <strong>
   <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe
 </strong>
+|
+<a href="README_ZH_CN.md">
+  <img src="https://flagcdn.com/cn.svg" width="20" alt="Basitleştirilmiş Çince"> Basitleştirilmiş Çince
+</a>
 
 # Kısayol Bekçisi, Windows üzerinde belirli klavye kısayollarını engellemenizi sağlayan, Python tabanlı hafif bir masaüstü uygulamasıdır. Basit grafik arayüzü sayesinde yanlışlıkla tetiklenen kısayolları kontrol altında tutabilir ve istediğiniz korumaları kolayca yönetebilirsiniz.
 
