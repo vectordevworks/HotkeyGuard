@@ -1,4 +1,3 @@
-
 $ErrorActionPreference = "Stop"
 
 # ============================================================
@@ -8,14 +7,14 @@ $ErrorActionPreference = "Stop"
 # Build.ps1 dosyasinin scripts klasorunde oldugu varsayilir.
 $ProjectDir = Split-Path -Parent $PSScriptRoot
 
-$MainFile  = Join-Path $ProjectDir "ShortcutBlocker.pyw"
+$MainFile  = Join-Path $ProjectDir "HotkeyGuard.pyw"
 $AssetsDir = Join-Path $ProjectDir "assets"
 $IconFile  = Join-Path $AssetsDir "icon.png"
 
 $DistDir  = Join-Path $ProjectDir "dist"
 $BuildDir = Join-Path $ProjectDir "build"
 
-$IconIcoFile = Join-Path $BuildDir "ShortcutBlocker.ico"
+$IconIcoFile = Join-Path $BuildDir "HotkeyGuard.ico"
 
 Write-Host ""
 Write-Host "========================================"
@@ -88,7 +87,7 @@ python -m PyInstaller `
     --clean `
     --onefile `
     --windowed `
-    --name "ShortcutBlocker" `
+    --name "HotkeyGuard" `
     --icon $IconIcoFile `
     --add-data "$AssetsDir;assets" `
     --distpath $DistDir `
@@ -106,7 +105,7 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "[5/5] EXE kontrol ediliyor..."
 
-$ExeFile = Join-Path $DistDir "ShortcutBlocker.exe"
+$ExeFile = Join-Path $DistDir "HotkeyGuard.exe"
 
 if (!(Test-Path $ExeFile)) {
     throw "EXE dosyasi olusturulamadi: $ExeFile"
