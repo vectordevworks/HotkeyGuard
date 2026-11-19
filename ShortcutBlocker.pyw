@@ -2,7 +2,9 @@ import ctypes
 import json
 import math
 import os
+import sys
 import tkinter as tk
+import winreg
 
 from tkinter import ttk, messagebox
 from ctypes import wintypes
@@ -35,7 +37,11 @@ if os.name != "nt":
 # DOSYA YOLLARI
 # ============================================================
 
-BASE_DIR = Path(__file__).resolve().parent
+if getattr(sys, "frozen", False):
+    BASE_DIR = Path(sys.executable).resolve().parent
+else:
+    BASE_DIR = Path(__file__).resolve().parent
+
 ASSETS_DIR = BASE_DIR / "assets"
 
 ICON_PATH = ASSETS_DIR / "icon.png"
@@ -111,7 +117,6 @@ APP_NAMES = {
 
 
 TRANSLATIONS = {
-
     "en": {
         "Bu program yalnızca Windows içindir.": "This program is only available for Windows.",
         "KISAYOL": "SHORTCUT",
@@ -139,9 +144,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "The keyboard hook could not be installed.\n\nWindows error code: {error}",
         "Kısayol Engelleyici Hatası": "Shortcut Blocker Error",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "The keyboard hook could not be removed.\n\nWindows error code: {error}",
-        "Dil": "Language"
+        "Dil": "Language",
+        "Windows ile Başlat": "Start with Windows",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Automatically starts the application when Windows starts.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "The system tray feature requires pystray and Pillow.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "Could not minimize to the system tray:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Could not change the Windows startup setting."
     },
-
     "de": {
         "Bu program yalnızca Windows içindir.": "Dieses Programm ist nur für Windows verfügbar.",
         "KISAYOL": "TASTENKÜRZEL",
@@ -169,9 +178,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "Der Tastatur-Hook konnte nicht installiert werden.\n\nWindows-Fehlercode: {error}",
         "Kısayol Engelleyici Hatası": "Tastenkombinationsblocker-Fehler",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "Der Tastatur-Hook konnte nicht entfernt werden.\n\nWindows-Fehlercode: {error}",
-        "Dil": "Sprache"
+        "Dil": "Sprache",
+        "Windows ile Başlat": "Mit Windows starten",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Startet die Anwendung automatisch, wenn Windows gestartet wird.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "Für die Taskleistenfunktion werden pystray und Pillow benötigt.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "Das Minimieren in die Taskleiste ist fehlgeschlagen:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Die Windows-Starteinstellung konnte nicht geändert werden."
     },
-
     "fr": {
         "Bu program yalnızca Windows içindir.": "Ce programme est uniquement disponible sous Windows.",
         "KISAYOL": "RACCOURCI",
@@ -199,9 +212,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "Le hook clavier n'a pas pu être installé.\n\nCode d'erreur Windows : {error}",
         "Kısayol Engelleyici Hatası": "Erreur du bloqueur de raccourcis",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "Le hook clavier n'a pas pu être supprimé.\n\nCode d'erreur Windows : {error}",
-        "Dil": "Langue"
+        "Dil": "Langue",
+        "Windows ile Başlat": "Lancer avec Windows",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Démarre automatiquement l’application au démarrage de Windows.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "La fonction de zone de notification nécessite pystray et Pillow.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "La réduction dans la zone de notification a échoué :\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Impossible de modifier le paramètre de démarrage de Windows."
     },
-
     "es": {
         "Bu program yalnızca Windows içindir.": "Este programa solo está disponible para Windows.",
         "KISAYOL": "ATAJOS",
@@ -229,9 +246,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "No se pudo instalar el hook del teclado.\n\nCódigo de error de Windows: {error}",
         "Kısayol Engelleyici Hatası": "Error del bloqueador de atajos",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "No se pudo quitar el hook del teclado.\n\nCódigo de error de Windows: {error}",
-        "Dil": "Idioma"
+        "Dil": "Idioma",
+        "Windows ile Başlat": "Iniciar con Windows",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Inicia automáticamente la aplicación al arrancar Windows.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "La función de la bandeja del sistema requiere pystray y Pillow.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "No se pudo minimizar a la bandeja del sistema:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "No se pudo cambiar la configuración de inicio de Windows."
     },
-
     "pt": {
         "Bu program yalnızca Windows içindir.": "Este programa está disponível apenas para Windows.",
         "KISAYOL": "ATALHO",
@@ -259,9 +280,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "Não foi possível instalar o hook do teclado.\n\nCódigo de erro do Windows: {error}",
         "Kısayol Engelleyici Hatası": "Erro do bloqueador de atalhos",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "Não foi possível remover o hook do teclado.\n\nCódigo de erro do Windows: {error}",
-        "Dil": "Idioma"
+        "Dil": "Idioma",
+        "Windows ile Başlat": "Iniciar com o Windows",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Inicia automaticamente o aplicativo quando o Windows é iniciado.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "O recurso de bandeja do sistema requer pystray e Pillow.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "Não foi possível minimizar para a bandeja do sistema:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Não foi possível alterar a configuração de inicialização do Windows."
     },
-
     "ru": {
         "Bu program yalnızca Windows içindir.": "Эта программа предназначена только для Windows.",
         "KISAYOL": "СОЧЕТАНИЯ",
@@ -289,9 +314,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "Не удалось установить клавиатурный перехватчик.\n\nКод ошибки Windows: {error}",
         "Kısayol Engelleyici Hatası": "Ошибка блокировщика сочетаний клавиш",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "Не удалось удалить клавиатурный перехватчик.\n\nКод ошибки Windows: {error}",
-        "Dil": "Язык"
+        "Dil": "Язык",
+        "Windows ile Başlat": "Запускать вместе с Windows",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Автоматически запускает приложение при запуске Windows.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "Для работы системного трея требуются pystray и Pillow.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "Не удалось свернуть приложение в системный трей:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Не удалось изменить параметр автозапуска Windows."
     },
-
     "ja": {
         "Bu program yalnızca Windows içindir.": "このプログラムは Windows 専用です。",
         "KISAYOL": "ショートカット",
@@ -319,9 +348,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "キーボードフックを設定できませんでした。\n\nWindows エラーコード: {error}",
         "Kısayol Engelleyici Hatası": "ショートカットブロッカーのエラー",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "キーボードフックを解除できませんでした。\n\nWindows エラーコード: {error}",
-        "Dil": "言語"
+        "Dil": "言語",
+        "Windows ile Başlat": "Windows と一緒に起動",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Windows の起動時にアプリを自動的に起動します。",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "システムトレイ機能には pystray と Pillow が必要です。",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "システムトレイへの最小化に失敗しました:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Windows のスタートアップ設定を変更できませんでした。"
     },
-
     "zh-CN": {
         "Bu program yalnızca Windows içindir.": "此程序仅适用于 Windows。",
         "KISAYOL": "快捷键",
@@ -349,9 +382,13 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "无法安装键盘钩子。\n\nWindows 错误代码：{error}",
         "Kısayol Engelleyici Hatası": "快捷键拦截器错误",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "无法移除键盘钩子。\n\nWindows 错误代码：{error}",
-        "Dil": "语言"
+        "Dil": "语言",
+        "Windows ile Başlat": "随 Windows 启动",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Windows 启动时自动运行此应用。",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "系统托盘功能需要 pystray 和 Pillow。",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "无法最小化到系统托盘：\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "无法更改 Windows 启动设置。"
     },
-
     "ko": {
         "Bu program yalnızca Windows içindir.": "이 프로그램은 Windows 전용입니다.",
         "KISAYOL": "단축키",
@@ -379,7 +416,12 @@ TRANSLATIONS = {
         "Klavye kancası kurulamadı.\n\nWindows hata kodu: {error}": "키보드 후크를 설치하지 못했습니다.\n\nWindows 오류 코드: {error}",
         "Kısayol Engelleyici Hatası": "단축키 차단기 오류",
         "Klavye kancası kaldırılamadı.\n\nWindows hata kodu: {error}": "키보드 후크를 제거하지 못했습니다.\n\nWindows 오류 코드: {error}",
-        "Dil": "언어"
+        "Dil": "언어",
+        "Windows ile Başlat": "Windows 시작 시 실행",
+        "Windows açıldığında uygulamayı otomatik başlatır.": "Windows가 시작될 때 앱을 자동으로 실행합니다.",
+        "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.": "시스템 트레이 기능에는 pystray와 Pillow가 필요합니다.",
+        "Sistem tepsisine küçültme başarısız oldu:\n\n{error}": "시스템 트레이로 최소화하지 못했습니다:\n\n{error}",
+        "Windows başlangıç ayarı değiştirilemedi.": "Windows 시작 설정을 변경하지 못했습니다."
     }
 }
 
@@ -389,7 +431,6 @@ TRANSLATIONS = {
 # ============================================================
 
 class KBDLLHOOKSTRUCT(ctypes.Structure):
-
     _fields_ = [
         ("vkCode", wintypes.DWORD),
         ("scanCode", wintypes.DWORD),
@@ -417,7 +458,6 @@ user32.GetWindowThreadProcessId.argtypes = [
     wintypes.HWND,
     ctypes.POINTER(wintypes.DWORD)
 ]
-
 user32.GetWindowThreadProcessId.restype = wintypes.DWORD
 
 kernel32.OpenProcess.argtypes = [
@@ -425,7 +465,6 @@ kernel32.OpenProcess.argtypes = [
     wintypes.BOOL,
     wintypes.DWORD
 ]
-
 kernel32.OpenProcess.restype = wintypes.HANDLE
 
 kernel32.QueryFullProcessImageNameW.argtypes = [
@@ -434,7 +473,6 @@ kernel32.QueryFullProcessImageNameW.argtypes = [
     wintypes.LPWSTR,
     ctypes.POINTER(wintypes.DWORD)
 ]
-
 kernel32.QueryFullProcessImageNameW.restype = wintypes.BOOL
 
 kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
@@ -449,7 +487,6 @@ user32.SetWindowsHookExW.argtypes = [
     wintypes.HINSTANCE,
     wintypes.DWORD
 ]
-
 user32.SetWindowsHookExW.restype = HHOOK
 
 user32.UnhookWindowsHookEx.argtypes = [HHOOK]
@@ -461,7 +498,6 @@ user32.CallNextHookEx.argtypes = [
     wintypes.WPARAM,
     wintypes.LPARAM
 ]
-
 user32.CallNextHookEx.restype = LRESULT
 
 
@@ -498,7 +534,6 @@ pressed_shifts = set()
 # ============================================================
 
 def get_foreground_process():
-
     hwnd = user32.GetForegroundWindow()
 
     if not hwnd:
@@ -524,7 +559,6 @@ def get_foreground_process():
         return None
 
     try:
-
         buffer = ctypes.create_unicode_buffer(1024)
         size = wintypes.DWORD(len(buffer))
 
@@ -549,11 +583,8 @@ def get_foreground_process():
 # ============================================================
 
 def keyboard_callback(nCode, wParam, lParam):
-
     try:
-
         if nCode == HC_ACTION:
-
             event = ctypes.cast(
                 lParam,
                 ctypes.POINTER(KBDLLHOOKSTRUCT)
@@ -561,18 +592,10 @@ def keyboard_callback(nCode, wParam, lParam):
 
             key = event.vkCode
 
-            key_down = wParam in (
-                WM_KEYDOWN,
-                WM_SYSKEYDOWN
-            )
-
-            key_up = wParam in (
-                WM_KEYUP,
-                WM_SYSKEYUP
-            )
+            key_down = wParam in (WM_KEYDOWN, WM_SYSKEYDOWN)
+            key_up = wParam in (WM_KEYUP, WM_SYSKEYUP)
 
             if key_down:
-
                 if key in (VK_SHIFT, VK_LSHIFT, VK_RSHIFT):
                     pressed_shifts.add(key)
 
@@ -587,7 +610,6 @@ def keyboard_callback(nCode, wParam, lParam):
 
                 # Uygulamaya göre F1
                 if block_f1 and key == VK_F1:
-
                     process = get_foreground_process()
 
                     if process in BLOCKED_APPS:
@@ -595,7 +617,6 @@ def keyboard_callback(nCode, wParam, lParam):
                         return 1
 
             elif key_up:
-
                 if key in (VK_SHIFT, VK_LSHIFT, VK_RSHIFT):
                     pressed_shifts.discard(key)
 
@@ -615,13 +636,105 @@ def keyboard_callback(nCode, wParam, lParam):
 
 
 # ============================================================
+# ÖZEL CHECKBOX
+# ============================================================
+
+class CustomCheckbutton(tk.Frame):
+
+    def __init__(
+        self,
+        parent,
+        variable,
+        command=None,
+        bg="#202633"
+    ):
+        super().__init__(
+            parent,
+            bg=bg,
+            bd=0,
+            highlightthickness=0,
+            cursor="hand2"
+        )
+
+        self.variable = variable
+        self.command = command
+        self.background = bg
+        self.state = "normal"
+
+        self.canvas = tk.Canvas(
+            self,
+            width=26,
+            height=28,
+            bg=bg,
+            bd=0,
+            highlightthickness=0,
+            cursor="hand2"
+        )
+        self.canvas.pack()
+
+        self.canvas.bind("<Button-1>", self.toggle)
+        self.bind("<Button-1>", self.toggle)
+
+        self.draw()
+
+    def draw(self):
+        self.canvas.delete("all")
+
+        checked = bool(self.variable.get())
+
+        if self.state == "disabled":
+            border_color = "#555D6B"
+            check_color = "#687386"
+        else:
+            border_color = "#A78BFA" if checked else "#657187"
+            check_color = "#A78BFA"
+
+        self.canvas.create_rectangle(
+            4, 5, 22, 23,
+            outline=border_color,
+            fill=self.background,
+            width=1.5
+        )
+
+        if checked:
+            self.canvas.create_text(
+                13,
+                14,
+                text="✓",
+                fill=check_color,
+                font=("Segoe UI Symbol", 14, "bold")
+            )
+
+    def toggle(self, event=None):
+        if self.state == "disabled":
+            return
+
+        self.variable.set(not self.variable.get())
+        self.draw()
+
+        if self.command:
+            self.command()
+
+    def configure(self, cnf=None, **kwargs):
+        if "state" in kwargs:
+            self.state = kwargs.pop("state")
+            self.draw()
+
+        return super().configure(cnf, **kwargs)
+
+    config = configure
+
+
+# ============================================================
 # ANA UYGULAMA
 # ============================================================
 
 class ShortcutBlocker:
 
-    def __init__(self, root):
+    STARTUP_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
+    STARTUP_NAME = "ShortcutBlocker"
 
+    def __init__(self, root):
         self.root = root
         self.language = self.load_language()
 
@@ -642,27 +755,111 @@ class ShortcutBlocker:
         self.root.minsize(400, 400)
         self.root.configure(bg="#10131B")
 
-        self.root.protocol(
-            "WM_DELETE_WINDOW",
-            self.close
-        )
-
-        self.root.bind(
-            "<Unmap>",
-            self.on_window_minimize
-        )
+        self.root.protocol("WM_DELETE_WINDOW", self.close)
+        self.root.bind("<Unmap>", self.on_window_minimize)
 
         self.load_window_icon()
         self.create_variables()
+
+        # Mevcut başlangıç kaydını --minimized parametresiyle güncelle.
+        if self.startup_var.get():
+            self.set_startup(True)
+
         self.create_styles()
         self.create_scrollable_interface()
+
+    # --------------------------------------------------------
+    # WINDOWS STARTUP
+    # --------------------------------------------------------
+
+    def get_startup_command(self):
+        if getattr(sys, "frozen", False):
+            executable = Path(sys.executable).resolve()
+            return f'"{executable}" --minimized'
+
+        executable = Path(sys.executable).resolve()
+        pythonw = executable.with_name("pythonw.exe")
+
+        if pythonw.is_file():
+            executable = pythonw
+
+        script = Path(__file__).resolve()
+        return f'"{executable}" "{script}" --minimized'
+
+    def is_startup_enabled(self):
+        try:
+            with winreg.OpenKey(
+                winreg.HKEY_CURRENT_USER,
+                self.STARTUP_KEY,
+                0,
+                winreg.KEY_READ
+            ) as key:
+                value, _ = winreg.QueryValueEx(
+                    key,
+                    self.STARTUP_NAME
+                )
+
+            return bool(value)
+
+        except FileNotFoundError:
+            return False
+
+        except OSError as error:
+            print(f"Startup registry read error: {error}")
+            return False
+
+    def set_startup(self, enabled):
+        try:
+            with winreg.CreateKeyEx(
+                winreg.HKEY_CURRENT_USER,
+                self.STARTUP_KEY,
+                0,
+                winreg.KEY_SET_VALUE
+            ) as key:
+
+                if enabled:
+                    winreg.SetValueEx(
+                        key,
+                        self.STARTUP_NAME,
+                        0,
+                        winreg.REG_SZ,
+                        self.get_startup_command()
+                    )
+                else:
+                    try:
+                        winreg.DeleteValue(
+                            key,
+                            self.STARTUP_NAME
+                        )
+                    except FileNotFoundError:
+                        pass
+
+            return True
+
+        except OSError as error:
+            print(f"Startup registry error: {error}")
+            return False
+
+    def toggle_startup(self):
+        enabled = self.startup_var.get()
+
+        if not self.set_startup(enabled):
+            self.startup_var.set(not enabled)
+
+            if hasattr(self, "startup_checkbox"):
+                self.startup_checkbox.draw()
+
+            messagebox.showerror(
+                APP_NAMES[self.language],
+                self.tr("Windows başlangıç ayarı değiştirilemedi."),
+                parent=self.root
+            )
 
     # --------------------------------------------------------
     # DİL VE YAPILANDIRMA
     # --------------------------------------------------------
 
     def tr(self, text):
-
         if self.language == "tr":
             return text
 
@@ -671,16 +868,9 @@ class ShortcutBlocker:
         ).get(text, text)
 
     def load_language(self):
-
         try:
-
             if CONFIG_FILE.exists():
-
-                with CONFIG_FILE.open(
-                    "r",
-                    encoding="utf-8"
-                ) as file:
-
+                with CONFIG_FILE.open("r", encoding="utf-8") as file:
                     config = json.load(file)
 
                 language = config.get("language", "tr")
@@ -699,19 +889,10 @@ class ShortcutBlocker:
         return "tr"
 
     def save_language(self):
-
         try:
+            CONFIG_DIR.mkdir(parents=True, exist_ok=True)
 
-            CONFIG_DIR.mkdir(
-                parents=True,
-                exist_ok=True
-            )
-
-            with CONFIG_FILE.open(
-                "w",
-                encoding="utf-8"
-            ) as file:
-
+            with CONFIG_FILE.open("w", encoding="utf-8") as file:
                 json.dump(
                     {"language": self.language},
                     file,
@@ -723,7 +904,6 @@ class ShortcutBlocker:
             print(f"Configuration save error: {error}")
 
     def set_language(self, language):
-
         if language not in LANGUAGES:
             return
 
@@ -734,78 +914,54 @@ class ShortcutBlocker:
 
         delete_value = self.delete_var.get()
         f1_value = self.f1_var.get()
+        startup_value = self.startup_var.get()
 
         self.language = language
         self.save_language()
-
         self.root.title(APP_NAMES[self.language])
 
-        # Eski MouseWheel bağlantısını kaldır.
         self.canvas.unbind_all("<MouseWheel>")
 
-        # Eski arayüzü temizle.
         for widget in self.root.winfo_children():
             widget.destroy()
 
         self.setting_checkbuttons.clear()
 
-        # Yeni dilde arayüzü oluştur.
         self.create_scrollable_interface()
 
-        # Ayarları koru.
         self.delete_var.set(delete_value)
         self.f1_var.set(f1_value)
+        self.startup_var.set(startup_value)
 
-        # Koruma durumunu koru.
+        for checkbutton in self.setting_checkbuttons:
+            checkbutton.draw()
+
         if hook:
-
-            self.status_var.set(
-                self.tr("Koruma etkin")
-            )
-
+            self.status_var.set(self.tr("Koruma etkin"))
             self.status_detail.set(
                 self.tr("Seçilen kısayollar engelleniyor.")
             )
-
             self.status_label.config(fg="#4ADE80")
             self.start_button.config(state="disabled")
             self.stop_button.config(state="normal")
-
             self.set_settings_state("disabled")
-
         else:
-
-            self.status_var.set(
-                self.tr("Program durduruldu")
-            )
-
+            self.status_var.set(self.tr("Program durduruldu"))
             self.status_detail.set(
                 self.tr("Koruma şu anda etkin değil.")
             )
-
             self.status_label.config(fg="#F87171")
             self.start_button.config(state="normal")
             self.stop_button.config(state="disabled")
-
             self.set_settings_state("normal")
 
     def load_window_icon(self):
-
         try:
-
             if ICON_PATH.is_file():
-
-                self.window_icon = tk.PhotoImage(
-                    file=str(ICON_PATH)
-                )
-
-                self.root.iconphoto(
-                    True,
-                    self.window_icon
-                )
+                self.window_icon = tk.PhotoImage(file=str(ICON_PATH))
+                self.root.iconphoto(True, self.window_icon)
 
         except (tk.TclError, OSError) as error:
-
             print(f"Window icon loading error: {error}")
             self.window_icon = None
 
@@ -814,14 +970,15 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def create_variables(self):
-
         self.delete_var = tk.BooleanVar(value=True)
         self.f1_var = tk.BooleanVar(value=True)
+        self.startup_var = tk.BooleanVar(
+            value=self.is_startup_enabled()
+        )
 
         self.status_var = tk.StringVar(
             value=self.tr("Program durduruldu")
         )
-
         self.status_detail = tk.StringVar(
             value=self.tr("Koruma şu anda etkin değil.")
         )
@@ -831,35 +988,8 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def create_styles(self):
-
         style = ttk.Style()
-
         style.theme_use("clam")
-
-        style.configure(
-            "TCheckbutton",
-            background="#202633",
-            foreground="#E5E7EB",
-            font=("Segoe UI", 10),
-            padding=5,
-            borderwidth=0,
-            relief="flat",
-            focuscolor="#202633"
-        )
-
-        style.map(
-            "TCheckbutton",
-            background=[
-                ("active", "#202633"),
-                ("disabled", "#202633")
-            ],
-            foreground=[
-                ("disabled", "#777777")
-            ],
-            focuscolor=[
-                ("focus", "#202633")
-            ]
-        )
 
         style.configure(
             "Vertical.TScrollbar",
@@ -880,13 +1010,10 @@ class ShortcutBlocker:
                 ("active", "#55A6FF"),
                 ("pressed", "#2878D0")
             ],
-            arrowcolor=[
-                ("active", "#FFFFFF")
-            ]
+            arrowcolor=[("active", "#FFFFFF")]
         )
 
     def create_card(self, parent):
-
         return tk.Frame(
             parent,
             bg="#202633",
@@ -903,19 +1030,13 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def create_scrollable_interface(self):
-
         top_bar = tk.Frame(
             self.root,
             bg="#10131B",
             bd=0,
             highlightthickness=0
         )
-
-        top_bar.pack(
-            fill="x",
-            padx=20,
-            pady=(10, 0)
-        )
+        top_bar.pack(fill="x", padx=20, pady=(10, 0))
 
         self.language_button = tk.Button(
             top_bar,
@@ -938,7 +1059,6 @@ class ShortcutBlocker:
             pady=5,
             anchor="center"
         )
-
         self.language_button.pack(side="right")
 
         container = tk.Frame(
@@ -947,11 +1067,7 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        container.pack(
-            fill="both",
-            expand=True
-        )
+        container.pack(fill="both", expand=True)
 
         self.canvas = tk.Canvas(
             container,
@@ -961,12 +1077,7 @@ class ShortcutBlocker:
             bd=0,
             relief="flat"
         )
-
-        self.canvas.pack(
-            side="left",
-            fill="both",
-            expand=True
-        )
+        self.canvas.pack(side="left", fill="both", expand=True)
 
         self.scrollbar = ttk.Scrollbar(
             container,
@@ -974,15 +1085,9 @@ class ShortcutBlocker:
             command=self.canvas.yview,
             style="Vertical.TScrollbar"
         )
+        self.scrollbar.pack(side="right", fill="y")
 
-        self.scrollbar.pack(
-            side="right",
-            fill="y"
-        )
-
-        self.canvas.configure(
-            yscrollcommand=self.scrollbar.set
-        )
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
 
         self.content_frame = tk.Frame(
             self.canvas,
@@ -1001,16 +1106,8 @@ class ShortcutBlocker:
             "<Configure>",
             self.update_scroll_region
         )
-
-        self.canvas.bind(
-            "<Configure>",
-            self.update_canvas_width
-        )
-
-        self.canvas.bind_all(
-            "<MouseWheel>",
-            self.on_mousewheel
-        )
+        self.canvas.bind("<Configure>", self.update_canvas_width)
+        self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)
 
         self.create_interface()
 
@@ -1019,20 +1116,14 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def get_language_icon(self):
-
         try:
-
             if not LANGUAGE_ICON_PATH.is_file():
-
                 self.language_icon = None
                 return ""
 
             if PILLOW_AVAILABLE:
-
                 with Image.open(LANGUAGE_ICON_PATH) as source:
-
                     source = source.convert("RGBA")
-
                     source.thumbnail(
                         (20, 20),
                         Image.Resampling.LANCZOS
@@ -1046,19 +1137,13 @@ class ShortcutBlocker:
 
                     x = (20 - source.width) // 2
                     y = (20 - source.height) // 2
-
-                    image.alpha_composite(
-                        source,
-                        (x, y)
-                    )
+                    image.alpha_composite(source, (x, y))
 
                     self.language_icon = ImageTk.PhotoImage(image)
 
                 return self.language_icon
 
-            image = tk.PhotoImage(
-                file=str(LANGUAGE_ICON_PATH)
-            )
+            image = tk.PhotoImage(file=str(LANGUAGE_ICON_PATH))
 
             width = image.width()
             height = image.height()
@@ -1072,13 +1157,10 @@ class ShortcutBlocker:
                 image = image.subsample(factor, factor)
 
             self.language_icon = image
-
             return self.language_icon
 
         except (tk.TclError, OSError, ValueError) as error:
-
             print(f"Language icon loading error: {error}")
-
             self.language_icon = None
             return ""
 
@@ -1087,7 +1169,6 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def close_language_menu(self):
-
         menu = self.language_menu_window
 
         if menu is None:
@@ -1096,20 +1177,15 @@ class ShortcutBlocker:
         self.language_menu_window = None
 
         if self.language_menu_after_id is not None:
-
             try:
-                self.root.after_cancel(
-                    self.language_menu_after_id
-                )
+                self.root.after_cancel(self.language_menu_after_id)
             except tk.TclError:
                 pass
 
             self.language_menu_after_id = None
 
         try:
-
             if menu.winfo_exists():
-
                 try:
                     menu.grab_release()
                 except tk.TclError:
@@ -1121,24 +1197,20 @@ class ShortcutBlocker:
             pass
 
     def show_language_menu(self):
-
         if self.language_menu_window is not None:
             self.close_language_menu()
             return
 
         menu = tk.Toplevel(self.root)
-
         self.language_menu_window = menu
 
         menu.overrideredirect(True)
-
         menu.configure(
             bg="#30394A",
             bd=0,
             highlightthickness=0,
             relief="flat"
         )
-
         menu.transient(self.root)
 
         outer_frame = tk.Frame(
@@ -1148,13 +1220,7 @@ class ShortcutBlocker:
             highlightthickness=0,
             relief="flat"
         )
-
-        outer_frame.pack(
-            fill="both",
-            expand=True,
-            padx=1,
-            pady=1
-        )
+        outer_frame.pack(fill="both", expand=True, padx=1, pady=1)
 
         inner_frame = tk.Frame(
             outer_frame,
@@ -1162,19 +1228,13 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        inner_frame.pack(
-            fill="both",
-            expand=True
-        )
+        inner_frame.pack(fill="both", expand=True)
 
         for code, name in LANGUAGES.items():
-
             selected = code == self.language
 
             background = "#2878D0" if selected else "#202633"
             foreground = "#FFFFFF" if selected else "#E5E7EB"
-
             prefix = "✓  " if selected else "   "
 
             button = tk.Button(
@@ -1198,15 +1258,9 @@ class ShortcutBlocker:
                 padx=12,
                 pady=6
             )
-
-            button.pack(
-                fill="x",
-                padx=2,
-                pady=1
-            )
+            button.pack(fill="x", padx=2, pady=1)
 
             if not selected:
-
                 button.bind(
                     "<Enter>",
                     lambda event, widget=button: widget.configure(
@@ -1214,7 +1268,6 @@ class ShortcutBlocker:
                         fg="#FFFFFF"
                     )
                 )
-
                 button.bind(
                     "<Leave>",
                     lambda event, widget=button: widget.configure(
@@ -1225,15 +1278,10 @@ class ShortcutBlocker:
 
         menu.update_idletasks()
 
-        menu_width = max(
-            155,
-            menu.winfo_reqwidth()
-        )
-
+        menu_width = max(155, menu.winfo_reqwidth())
         menu_height = menu.winfo_reqheight()
 
         button_x = self.language_button.winfo_rootx()
-
         button_y = (
             self.language_button.winfo_rooty()
             + self.language_button.winfo_height()
@@ -1246,10 +1294,7 @@ class ShortcutBlocker:
             button_x = screen_width - menu_width - 5
 
         if button_y + menu_height > screen_height:
-            button_y = (
-                self.language_button.winfo_rooty()
-                - menu_height
-            )
+            button_y = self.language_button.winfo_rooty() - menu_height
 
         button_x = max(0, button_x)
         button_y = max(0, button_y)
@@ -1262,13 +1307,11 @@ class ShortcutBlocker:
             "<Escape>",
             lambda event: self.close_language_menu()
         )
-
         menu.bind(
             "<ButtonPress-1>",
             self.on_language_menu_click,
             add="+"
         )
-
         menu.bind(
             "<FocusOut>",
             self.on_language_menu_focus_out
@@ -1284,14 +1327,12 @@ class ShortcutBlocker:
             pass
 
     def on_language_menu_click(self, event):
-
         menu = self.language_menu_window
 
         if menu is None:
             return
 
         try:
-
             if not menu.winfo_exists():
                 return
 
@@ -1300,7 +1341,6 @@ class ShortcutBlocker:
 
             menu_left = menu.winfo_rootx()
             menu_top = menu.winfo_rooty()
-
             menu_right = menu_left + menu.winfo_width()
             menu_bottom = menu_top + menu.winfo_height()
 
@@ -1316,34 +1356,27 @@ class ShortcutBlocker:
             self.close_language_menu()
 
     def on_language_menu_focus_out(self, event):
-
         menu = self.language_menu_window
 
         if menu is None:
             return
 
         if self.language_menu_after_id is not None:
-
             try:
-                self.root.after_cancel(
-                    self.language_menu_after_id
-                )
+                self.root.after_cancel(self.language_menu_after_id)
             except tk.TclError:
                 pass
 
         try:
-
             self.language_menu_after_id = self.root.after(
                 150,
                 self.check_language_menu_focus,
                 menu
             )
-
         except tk.TclError:
             self.language_menu_after_id = None
 
     def check_language_menu_focus(self, expected_menu):
-
         self.language_menu_after_id = None
 
         if self.language_menu_window is not expected_menu:
@@ -1355,7 +1388,6 @@ class ShortcutBlocker:
             return
 
         try:
-
             if not menu.winfo_exists():
                 self.language_menu_window = None
                 return
@@ -1373,25 +1405,21 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def update_scroll_region(self, event=None):
-
         self.canvas.configure(
             scrollregion=self.canvas.bbox("all")
         )
 
     def update_canvas_width(self, event):
-
         self.canvas.itemconfigure(
             self.canvas_window,
             width=event.width
         )
 
     def on_mousewheel(self, event):
-
         if not self.canvas.winfo_exists():
             return
 
         if event.delta:
-
             self.canvas.yview_scroll(
                 -int(event.delta / 120),
                 "units"
@@ -1402,19 +1430,13 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def create_interface(self):
-
         header = tk.Frame(
             self.content_frame,
             bg="#10131B",
             bd=0,
             highlightthickness=0
         )
-
-        header.pack(
-            fill="x",
-            padx=30,
-            pady=(20, 15)
-        )
+        header.pack(fill="x", padx=30, pady=(20, 15))
 
         tk.Label(
             header,
@@ -1438,25 +1460,19 @@ class ShortcutBlocker:
 
         tk.Label(
             header,
-            text=self.tr("Yalnızca Windows işletim sistemi için geliştirilmiştir."),
+            text=self.tr(
+                "Yalnızca Windows işletim sistemi için geliştirilmiştir."
+            ),
             font=("Segoe UI", 9),
             fg="#8290A5",
             bg="#10131B",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            pady=(5, 0)
-        )
+        ).pack(anchor="w", pady=(5, 0))
 
         # DURUM KARTI
         status_card = self.create_card(self.content_frame)
-
-        status_card.pack(
-            fill="x",
-            padx=30,
-            pady=10
-        )
+        status_card.pack(fill="x", padx=30, pady=10)
 
         tk.Label(
             status_card,
@@ -1466,11 +1482,7 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(15, 5)
-        )
+        ).pack(anchor="w", padx=20, pady=(15, 5))
 
         self.status_label = tk.Label(
             status_card,
@@ -1481,11 +1493,7 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        self.status_label.pack(
-            anchor="w",
-            padx=20
-        )
+        self.status_label.pack(anchor="w", padx=20)
 
         tk.Label(
             status_card,
@@ -1495,20 +1503,11 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(5, 17)
-        )
+        ).pack(anchor="w", padx=20, pady=(5, 17))
 
         # KISAYOL AYARLARI
         settings_card = self.create_card(self.content_frame)
-
-        settings_card.pack(
-            fill="x",
-            padx=30,
-            pady=10
-        )
+        settings_card.pack(fill="x", padx=30, pady=10)
 
         tk.Label(
             settings_card,
@@ -1518,11 +1517,7 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(17, 12)
-        )
+        ).pack(anchor="w", padx=20, pady=(17, 12))
 
         self.create_setting(
             settings_card,
@@ -1534,32 +1529,37 @@ class ShortcutBlocker:
         self.create_setting(
             settings_card,
             "F1",
-            self.tr("Tarayıcılarda ve Dosya Gezgini'nde yardım penceresini engeller."),
+            self.tr(
+                "Tarayıcılarda ve Dosya Gezgini'nde yardım penceresini engeller."
+            ),
             self.f1_var
         )
 
         tk.Label(
             settings_card,
-            text=self.tr("Oyunlarda ve diğer uygulamalarda F1 tuşu serbesttir."),
+            text=self.tr(
+                "Oyunlarda ve diğer uygulamalarda F1 tuşu serbesttir."
+            ),
             font=("Segoe UI", 8),
             fg="#8290A5",
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(3, 17)
+        ).pack(anchor="w", padx=20, pady=(3, 8))
+
+        self.startup_checkbox = self.create_setting(
+            settings_card,
+            self.tr("Windows ile Başlat"),
+            self.tr(
+                "Windows açıldığında uygulamayı otomatik başlatır."
+            ),
+            self.startup_var,
+            command=self.toggle_startup
         )
 
         # UYGULAMA LİSTESİ
         apps_card = self.create_card(self.content_frame)
-
-        apps_card.pack(
-            fill="x",
-            padx=30,
-            pady=10
-        )
+        apps_card.pack(fill="x", padx=30, pady=10)
 
         tk.Label(
             apps_card,
@@ -1569,11 +1569,7 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(15, 8)
-        )
+        ).pack(anchor="w", padx=20, pady=(15, 8))
 
         tk.Label(
             apps_card,
@@ -1583,11 +1579,7 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(0, 5)
-        )
+        ).pack(anchor="w", padx=20, pady=(0, 5))
 
         tk.Label(
             apps_card,
@@ -1597,11 +1589,7 @@ class ShortcutBlocker:
             bg="#202633",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            padx=20,
-            pady=(0, 15)
-        )
+        ).pack(anchor="w", padx=20, pady=(0, 15))
 
         # BUTONLAR
         buttons = tk.Frame(
@@ -1610,12 +1598,7 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        buttons.pack(
-            fill="x",
-            padx=30,
-            pady=18
-        )
+        buttons.pack(fill="x", padx=30, pady=18)
 
         self.start_button = tk.Button(
             buttons,
@@ -1635,7 +1618,6 @@ class ShortcutBlocker:
             takefocus=False,
             pady=12
         )
-
         self.start_button.pack(
             side="left",
             fill="x",
@@ -1662,7 +1644,6 @@ class ShortcutBlocker:
             pady=12,
             state="disabled"
         )
-
         self.stop_button.pack(
             side="left",
             fill="x",
@@ -1677,11 +1658,7 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        footer.pack(
-            fill="x",
-            pady=(0, 18)
-        )
+        footer.pack(fill="x", pady=(0, 18))
 
         tk.Label(
             footer,
@@ -1712,21 +1689,16 @@ class ShortcutBlocker:
         parent,
         title,
         description,
-        variable
+        variable,
+        command=None
     ):
-
         row = tk.Frame(
             parent,
             bg="#202633",
             bd=0,
             highlightthickness=0
         )
-
-        row.pack(
-            fill="x",
-            padx=20,
-            pady=7
-        )
+        row.pack(fill="x", padx=20, pady=7)
 
         left = tk.Frame(
             row,
@@ -1734,12 +1706,7 @@ class ShortcutBlocker:
             bd=0,
             highlightthickness=0
         )
-
-        left.pack(
-            side="left",
-            fill="x",
-            expand=True
-        )
+        left.pack(side="left", fill="x", expand=True)
 
         tk.Label(
             left,
@@ -1761,26 +1728,20 @@ class ShortcutBlocker:
             justify="left",
             bd=0,
             highlightthickness=0
-        ).pack(
-            anchor="w",
-            pady=(3, 0)
-        )
+        ).pack(anchor="w", pady=(3, 0))
 
-        checkbutton = ttk.Checkbutton(
+        checkbutton = CustomCheckbutton(
             row,
             variable=variable,
-            takefocus=False
+            command=command,
+            bg="#202633"
         )
-
-        checkbutton.pack(
-            side="right",
-            padx=5
-        )
+        checkbutton.pack(side="right", padx=5)
 
         self.setting_checkbuttons.append(checkbutton)
+        return checkbutton
 
     def set_settings_state(self, state):
-
         for checkbutton in self.setting_checkbuttons:
             checkbutton.configure(state=state)
 
@@ -1789,56 +1750,40 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def get_tray_image(self):
-
         if not PILLOW_AVAILABLE:
             raise RuntimeError(
                 "Sistem tepsisi için Pillow gereklidir."
             )
 
-        # Önce assets/icon.png dosyasını kullan.
         try:
-
             if ICON_PATH.is_file():
-
                 with Image.open(ICON_PATH) as source:
-
                     source = source.convert("RGBA")
-
-                    # Görselin oranını koruyarak 256x256 alana sığdır.
                     source.thumbnail(
                         (256, 256),
                         Image.Resampling.LANCZOS
                     )
 
-                    # Her zaman 256x256 şeffaf tuval oluştur.
                     image = Image.new(
                         "RGBA",
                         (256, 256),
                         (0, 0, 0, 0)
                     )
 
-                    # Görseli tuvalin ortasına yerleştir.
                     x = (256 - source.width) // 2
                     y = (256 - source.height) // 2
-
-                    image.alpha_composite(
-                        source,
-                        (x, y)
-                    )
+                    image.alpha_composite(source, (x, y))
 
                     return image
 
         except (OSError, ValueError) as error:
-
             print(f"Tray icon loading error: {error}")
 
-        # Simge dosyası bulunamazsa varsayılan simge oluştur.
         image = Image.new(
             "RGBA",
             (256, 256),
             (16, 19, 27, 255)
         )
-
         draw = ImageDraw.Draw(image)
 
         draw.rounded_rectangle(
@@ -1856,7 +1801,6 @@ class ShortcutBlocker:
         return image
 
     def get_tray_menu_labels(self):
-
         labels = {
             "tr": ("Aç", "Çıkış"),
             "en": ("Open", "Exit"),
@@ -1870,18 +1814,12 @@ class ShortcutBlocker:
             "ko": ("열기", "종료")
         }
 
-        return labels.get(
-            self.language,
-            ("Aç", "Çıkış")
-        )
+        return labels.get(self.language, ("Aç", "Çıkış"))
 
     def on_window_minimize(self, event=None):
-
         try:
-
             if self.root.state() != "iconic":
                 return
-
         except tk.TclError:
             return
 
@@ -1896,32 +1834,24 @@ class ShortcutBlocker:
             pass
 
     def minimize_to_tray(self):
-
-        if self.is_closing:
-            return
-
-        if self.tray_icon is not None:
+        if self.is_closing or self.tray_icon is not None:
             return
 
         if not PYSTRAY_AVAILABLE or not PILLOW_AVAILABLE:
-
             messagebox.showwarning(
                 APP_NAMES[self.language],
-                "Sistem tepsisi özelliği için pystray ve Pillow gereklidir.",
+                self.tr("Sistem tepsisi özelliği için pystray ve Pillow gereklidir."),
                 parent=self.root
             )
 
             self.root.deiconify()
             self.root.state("normal")
-
             return
 
         tray = None
 
         try:
-
             image = self.get_tray_image()
-
             open_label, exit_label = self.get_tray_menu_labels()
 
             menu = pystray.Menu(
@@ -1945,15 +1875,12 @@ class ShortcutBlocker:
 
             self.tray_icon = tray
             self.is_minimized_to_tray = True
-
             self.root.withdraw()
 
             tray.run_detached()
 
         except Exception as error:
-
             if tray is not None:
-
                 try:
                     tray.stop()
                 except Exception:
@@ -1970,46 +1897,41 @@ class ShortcutBlocker:
 
             messagebox.showerror(
                 APP_NAMES[self.language],
-                f"Sistem tepsisine küçültme başarısız oldu:\n\n{error}",
+                self.tr(
+                    "Sistem tepsisine küçültme başarısız oldu:\n\n{error}"
+                ).format(error=error),
                 parent=self.root
             )
 
     def restore_from_tray(self, icon=None, item=None):
-
         try:
             self.root.after(0, self.restore_window)
         except tk.TclError:
             pass
 
     def restore_window(self):
-
         if self.is_closing:
             return
 
         tray = self.tray_icon
-
         self.tray_icon = None
         self.is_minimized_to_tray = False
 
         if tray is not None:
-
             try:
                 tray.stop()
             except Exception as error:
                 print(f"Tray icon stop error: {error}")
 
         try:
-
             self.root.deiconify()
             self.root.state("normal")
             self.root.lift()
             self.root.focus_force()
-
         except tk.TclError:
             pass
 
     def exit_from_tray(self, icon=None, item=None):
-
         try:
             self.root.after(0, self.close)
         except tk.TclError:
@@ -2020,7 +1942,6 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def start(self):
-
         global hook
         global callback_reference
         global block_delete
@@ -2033,7 +1954,6 @@ class ShortcutBlocker:
         block_f1 = self.f1_var.get()
 
         if not block_delete and not block_f1:
-
             messagebox.showinfo(
                 APP_NAMES[self.language],
                 self.tr(
@@ -2041,11 +1961,9 @@ class ShortcutBlocker:
                 ),
                 parent=self.root
             )
-
             return
 
         ctypes.set_last_error(0)
-
         callback_reference = HOOKPROC(keyboard_callback)
 
         hook = user32.SetWindowsHookExW(
@@ -2056,9 +1974,7 @@ class ShortcutBlocker:
         )
 
         if not hook:
-
             error = ctypes.get_last_error()
-
             callback_reference = None
 
             messagebox.showerror(
@@ -2068,22 +1984,16 @@ class ShortcutBlocker:
                 ).format(error=error),
                 parent=self.root
             )
-
             return
 
-        self.status_var.set(
-            self.tr("Koruma etkin")
-        )
-
+        self.status_var.set(self.tr("Koruma etkin"))
         self.status_label.config(fg="#4ADE80")
-
         self.status_detail.set(
             self.tr("Seçilen kısayollar engelleniyor.")
         )
 
         self.start_button.config(state="disabled")
         self.stop_button.config(state="normal")
-
         self.set_settings_state("disabled")
 
     # --------------------------------------------------------
@@ -2091,18 +2001,14 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def stop(self):
-
         global hook
         global callback_reference
 
         if hook:
-
             ctypes.set_last_error(0)
-
             result = user32.UnhookWindowsHookEx(hook)
 
             if not result:
-
                 error = ctypes.get_last_error()
 
                 messagebox.showwarning(
@@ -2112,29 +2018,22 @@ class ShortcutBlocker:
                     ).format(error=error),
                     parent=self.root
                 )
-
                 return
 
             hook = None
 
         callback_reference = None
-
         blocked_keys.clear()
         pressed_shifts.clear()
 
-        self.status_var.set(
-            self.tr("Koruma durduruldu")
-        )
-
+        self.status_var.set(self.tr("Koruma durduruldu"))
         self.status_label.config(fg="#F87171")
-
         self.status_detail.set(
             self.tr("Klavye kısayolları artık engellenmiyor.")
         )
 
         self.start_button.config(state="normal")
         self.stop_button.config(state="disabled")
-
         self.set_settings_state("normal")
 
     # --------------------------------------------------------
@@ -2142,45 +2041,35 @@ class ShortcutBlocker:
     # --------------------------------------------------------
 
     def close(self):
-
         if self.is_closing:
             return
 
         self.close_language_menu()
 
-        # Önce klavye kancasını kaldır.
         if hook:
-
             self.stop()
 
-            # Kanca kaldırılamadıysa uygulamayı kapatma.
             if hook:
                 return
 
         self.is_closing = True
 
-        # Sistem tepsisi simgesini kaldır.
         tray = self.tray_icon
-
         self.tray_icon = None
         self.is_minimized_to_tray = False
 
         if tray is not None:
-
             try:
                 tray.stop()
             except Exception as error:
                 print(f"Tray icon stop error: {error}")
 
-        # Fare kaydırma bağlantısını kaldır.
         if hasattr(self, "canvas"):
-
             try:
                 self.canvas.unbind_all("<MouseWheel>")
             except tk.TclError:
                 pass
 
-        # Uygulamayı tamamen kapat.
         try:
             self.root.destroy()
         except tk.TclError:
@@ -2192,16 +2081,23 @@ class ShortcutBlocker:
 # ============================================================
 
 def main():
-
+    start_minimized = "--minimized" in sys.argv[1:]
     root = tk.Tk()
 
     try:
+        # Windows başlangıcından --minimized ile çalıştırıldıysa
+        # pencereyi ilk anda göstermeden sistem tepsisine aktar.
+        if start_minimized:
+            root.withdraw()
 
         app = ShortcutBlocker(root)
+
+        if start_minimized:
+            root.after(300, app.minimize_to_tray)
+
         root.mainloop()
 
     except Exception as error:
-
         try:
             root.destroy()
         except tk.TclError:
