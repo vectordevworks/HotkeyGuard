@@ -37,7 +37,7 @@
 </a>
 |
 <strong>
-  <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> Türkçe ✓
+  <img src="https://flagcdn.com/tr.svg" width="20" alt="Türkçe"> **Türkçe**
 </strong>
 ```
 
